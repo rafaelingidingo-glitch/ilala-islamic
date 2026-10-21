@@ -1,0 +1,40 @@
+🚀 Initializing Z-AI SDK...
+🔎 Searching images: "happy high school students walking campus friends"
+✅ Got 4 images
+{
+  "success": true,
+  "query": "happy high school students walking campus friends",
+  "count": 4,
+  "ranked": false,
+  "captioned_count": 0,
+  "results": [
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/6c916c55ee5a.jpg",
+      "caption": "",
+      "source": "Gwynedd Friends School",
+      "original_width": "2500px",
+      "original_height": "1786px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/c8c43c8185ab.jpg",
+      "caption": "",
+      "source": "Alamy",
+      "original_width": "1300px",
+      "original_height": "775px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f16fbcd123ca.jpg",
+      "caption": "",
+      "source": "CNN",
+      "original_width": "1479px",
+      "original_height": "832px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d51eeba8987b.jpg",
+      "caption": "",
+      "source": "Shutterstock",
+      "original_width": "1500px",
+      "original_height": "1464px"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+🚀 Initializing Z-AI SDK...
+🔎 Searching images: "students reading books in school library"
+✅ Got 4 images
+{
+  "success": true,
+  "query": "students reading books in school library",
+  "count": 4,
+  "ranked": false,
+  "captioned_count": 0,
+  "results": [
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/596926a758fb.jpg",
+      "caption": "",
+      "source": "The Nation",
+      "original_width": "1440px",
+      "original_height": "907px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/0be13f4c2471.jpg",
+      "caption": "",
+      "source": "Edutopia",
+      "original_width": "5616px",
+      "original_height": "3744px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/a5ac0a8a7d2f.jpg",
+      "caption": "",
+      "source": "Truthout",
+      "original_width": "1200px",
+      "original_height": "800px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/16711d9fbe33.jpg",
+      "caption": "",
+      "source": "Great Minds",
+      "original_width": "5568px",
+      "original_height": "3712px"
+    }
+  ]
+}

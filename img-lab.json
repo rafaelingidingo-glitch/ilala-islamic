@@ -1,0 +1,40 @@
+🚀 Initializing Z-AI SDK...
+🔎 Searching images: "students doing science experiment in school laboratory"
+✅ Got 4 images
+{
+  "success": true,
+  "query": "students doing science experiment in school laboratory",
+  "count": 4,
+  "ranked": false,
+  "captioned_count": 0,
+  "results": [
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/12a102f70dc0.jpg",
+      "caption": "",
+      "source": "Shutterstock",
+      "original_width": "1500px",
+      "original_height": "1101px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/73ba8cf1a600.jpg",
+      "caption": "",
+      "source": "DepositPhotos",
+      "original_width": "1600px",
+      "original_height": "1168px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/5cd1b0ab109f.jpg",
+      "caption": "",
+      "source": "Magnific",
+      "original_width": "1428px",
+      "original_height": "2000px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/0206f8e88077.jpg",
+      "caption": "",
+      "source": "Bethlehem High School",
+      "original_width": "1200px",
+      "original_height": "811px"
+    }
+  ]
+}

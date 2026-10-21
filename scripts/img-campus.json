@@ -1,0 +1,40 @@
+🚀 Initializing Z-AI SDK...
+🔎 Searching images: "modern secondary school campus building exterior"
+✅ Got 4 images
+{
+  "success": true,
+  "query": "modern secondary school campus building exterior",
+  "count": 4,
+  "ranked": false,
+  "captioned_count": 0,
+  "results": [
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b30c074c5585.jpg",
+      "caption": "",
+      "source": "Naturally Wood",
+      "original_width": "1200px",
+      "original_height": "1084px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/48a840a1ca9c.jpg",
+      "caption": "",
+      "source": "DesignInc",
+      "original_width": "2560px",
+      "original_height": "1707px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/fa0abd0a6ece.jpg",
+      "caption": "",
+      "source": "Acorn Aluminium",
+      "original_width": "2560px",
+      "original_height": "1643px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/622d48646d5f.jpg",
+      "caption": "",
+      "source": "ArchDaily",
+      "original_width": "2000px",
+      "original_height": "839px"
+    }
+  ]
+}

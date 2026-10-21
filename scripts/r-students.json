@@ -1,0 +1,54 @@
+🚀 Initializing Z-AI SDK...
+🔎 Searching images: "happy secondary school students group outdoors campus"
+✅ Got 6 images
+{
+  "success": true,
+  "query": "happy secondary school students group outdoors campus",
+  "count": 6,
+  "ranked": false,
+  "captioned_count": 0,
+  "results": [
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/014560d6733a.jpg",
+      "caption": "",
+      "source": "Alamy",
+      "original_width": "1300px",
+      "original_height": "956px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/70aac0d0d5a1.jpg",
+      "caption": "",
+      "source": "Dreamstime",
+      "original_width": "1600px",
+      "original_height": "1156px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/69781740d327.jpg",
+      "caption": "",
+      "source": "Shutterstock",
+      "original_width": "1500px",
+      "original_height": "1100px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/750a49c1d0cc.jpeg",
+      "caption": "",
+      "source": "Pexels",
+      "original_width": "4000px",
+      "original_height": "6000px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9ba5e03f8735.jpg",
+      "caption": "",
+      "source": "www.insightacademix.com",
+      "original_width": "1500px",
+      "original_height": "1000px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4f3dc0db4c29.jpg",
+      "caption": "",
+      "source": "The Ithaca Voice",
+      "original_width": "1200px",
+      "original_height": "800px"
+    }
+  ]
+}

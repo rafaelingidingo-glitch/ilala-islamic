@@ -1,0 +1,40 @@
+🚀 Initializing Z-AI SDK...
+🔎 Searching images: "school students playing football on sports field"
+✅ Got 4 images
+{
+  "success": true,
+  "query": "school students playing football on sports field",
+  "count": 4,
+  "ranked": false,
+  "captioned_count": 0,
+  "results": [
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/28e7efa15d37.jpg",
+      "caption": "",
+      "source": "",
+      "original_width": "1280px",
+      "original_height": "720px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/cbf89ba65a41.jpg",
+      "caption": "",
+      "source": "www.shutterstock.com",
+      "original_width": "1500px",
+      "original_height": "1101px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/30ef50260f95.jpg",
+      "caption": "",
+      "source": "www.alfred.edu",
+      "original_width": "1920px",
+      "original_height": "1081px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/24519f4f2b76.jpg",
+      "caption": "",
+      "source": "www.nytimes.com",
+      "original_width": "1800px",
+      "original_height": "1800px"
+    }
+  ]
+}

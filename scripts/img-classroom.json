@@ -1,0 +1,40 @@
+🚀 Initializing Z-AI SDK...
+🔎 Searching images: "high school students studying in classroom"
+✅ Got 4 images
+{
+  "success": true,
+  "query": "high school students studying in classroom",
+  "count": 4,
+  "ranked": false,
+  "captioned_count": 0,
+  "results": [
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b9174167f2da.jpg",
+      "caption": "",
+      "source": "Edutopia",
+      "original_width": "2880px",
+      "original_height": "1620px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4cd56787c846.jpg",
+      "caption": "",
+      "source": "Communities In Schools of Jacksonville",
+      "original_width": "2048px",
+      "original_height": "1536px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/c673e3eb4b98.jpg",
+      "caption": "",
+      "source": "Continuing and Professional Education | Access Programs - UC Davis",
+      "original_width": "1280px",
+      "original_height": "720px"
+    },
+    {
+      "original_url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/6d39fb9a57d0.png",
+      "caption": "",
+      "source": "Southern Nazarene University",
+      "original_width": "1080px",
+      "original_height": "1080px"
+    }
+  ]
+}
