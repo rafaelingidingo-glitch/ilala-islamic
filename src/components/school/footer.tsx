@@ -140,9 +140,17 @@ export function Footer({ onNavigate }: FooterProps) {
           <p>
             © {year} {identity.name}. All rights reserved.
           </p>
-          <p>
-            Established {identity.established} · {identity.type}
-          </p>
+          <div className="flex items-center gap-4">
+            <p>
+              Established {identity.established} · {identity.type}
+            </p>
+            <button
+              onClick={() => onNavigate('admin')}
+              className="rounded-md px-2 py-1 font-medium text-white/60 underline-offset-2 transition-colors hover:text-white hover:underline"
+            >
+              Staff Login
+            </button>
+          </div>
         </div>
       </div>
     </footer>

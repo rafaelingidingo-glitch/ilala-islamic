@@ -5,6 +5,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { PageHero, SectionHeading } from '@/components/school/shared'
 import { schoolConfig, type PageId } from '@/config/school-config'
 import { facilities, images, staff } from '@/data/site-content'
+import { useApiData } from '@/hooks/use-api-data'
+import type { StaffDto } from '@/lib/types'
 
 const values = [
   {
@@ -35,6 +37,10 @@ const values = [
 
 export function AboutPage({ onNavigate }: { onNavigate: (page: PageId) => void }) {
   const { identity, theme } = schoolConfig
+
+  // Staff directory is managed from the admin panel; sample content is the
+  // fallback while loading or when the database has no entries yet.
+  const { data: staffList } = useApiData<StaffDto[]>('/api/staff', staff as unknown as StaffDto[])
 
   return (
     <div>
@@ -203,7 +209,7 @@ export function AboutPage({ onNavigate }: { onNavigate: (page: PageId) => void }
             description="Qualified, experienced and genuinely invested in every student's success."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {staff.map((member) => (
+            {staffList.map((member) => (
               <Card
                 key={member.name}
                 className="border-0 text-center shadow-md transition-all hover:-translate-y-1 hover:shadow-xl"

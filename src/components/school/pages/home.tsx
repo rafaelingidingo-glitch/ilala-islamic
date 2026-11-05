@@ -15,23 +15,27 @@ import { Badge } from '@/components/ui/badge'
 import { SectionHeading } from '@/components/school/shared'
 import { schoolConfig, type PageId } from '@/config/school-config'
 import { events, images, news, streams, testimonials } from '@/data/site-content'
+import { useApiData } from '@/hooks/use-api-data'
+import { dayOfMonth, formatDate, monthShort } from '@/lib/format'
+import type { EventDto, NewsDto } from '@/lib/types'
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void
 }
 
-function formatDate(iso: string): string {
-  return new Date(iso + 'T00:00:00').toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  })
-}
-
 export function HomePage({ onNavigate }: HomePageProps) {
   const { identity, theme, stats, contact } = schoolConfig
-  const latestNews = news.slice(0, 3)
-  const upcomingEvents = events.slice(0, 3)
+
+  // Live content from the database (falls back to the sample content while
+  // loading or when the database has no entries yet).
+  const { data: newsData } = useApiData<NewsDto[]>('/api/news', news as unknown as NewsDto[])
+  const { data: eventsData } = useApiData<EventDto[]>(
+    '/api/events',
+    [...events].sort((a, b) => a.startDate.localeCompare(b.startDate)) as unknown as EventDto[]
+  )
+
+  const latestNews = newsData.slice(0, 3).map((n) => ({ ...n, image: n.image || images.classroom }))
+  const upcomingEvents = eventsData.slice(0, 3)
 
   return (
     <div>
@@ -313,8 +317,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
                       style={{ backgroundColor: theme.primary }}
                       aria-hidden="true"
                     >
-                      <span className="text-lg font-extrabold leading-none">{event.day}</span>
-                      <span className="text-[10px] font-bold tracking-wider">{event.month}</span>
+                      <span className="text-lg font-extrabold leading-none">{dayOfMonth(event.startDate)}</span>
+                      <span className="text-[10px] font-bold tracking-wider">{monthShort(event.startDate)}</span>
                     </div>
                     <div className="min-w-0">
                       <h3 className="text-sm font-bold leading-snug text-slate-900">

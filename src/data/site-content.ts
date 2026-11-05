@@ -60,7 +60,7 @@ export const news: NewsItem[] = [
     title: 'Form Four Students Achieve 96% Pass Rate in National Examinations',
     excerpt:
       'We are proud to announce that our Form Four class has achieved a 96% pass rate in the national examinations, with 41% of candidates earning Division One results. This outstanding performance reflects the dedication of our students, teachers and parents, and keeps Brightfield among the top-performing schools in the region.',
-    date: '2026-01-15',
+    date: '2026-10-27',
     category: 'Academics',
     image: images.classroom,
     featured: true,
@@ -70,7 +70,7 @@ export const news: NewsItem[] = [
     title: 'New Science & Innovation Laboratory Officially Opened',
     excerpt:
       'Our brand-new, fully equipped science laboratory is now open, serving Physics, Chemistry and Biology practicals for all forms. The facility features modern workstations, fume hoods and digital sensors, and was funded jointly by the school board, parents and alumni partners.',
-    date: '2025-12-02',
+    date: '2026-10-14',
     category: 'Facilities',
     image: images.labAlt,
   },
@@ -79,7 +79,7 @@ export const news: NewsItem[] = [
     title: 'Brightfield Wins Regional Inter-School Football Championship',
     excerpt:
       'Our senior football team lifted the regional inter-school trophy after an unbeaten campaign, defeating 14 other schools along the way. Captain Emmanuel M. was named Player of the Tournament, and three players have been selected for the regional youth squad.',
-    date: '2025-11-18',
+    date: '2026-09-30',
     category: 'Sports',
     image: images.sports,
   },
@@ -88,7 +88,7 @@ export const news: NewsItem[] = [
     title: 'Annual Science Fair Showcases 40+ Student Projects',
     excerpt:
       'More than forty projects were presented at this year\u2019s science fair, ranging from low-cost water filtration models to a solar-powered classroom lighting prototype. The winning team will represent the school at the national science week in Dodoma.',
-    date: '2025-10-09',
+    date: '2026-09-12',
     category: 'Academics',
     image: images.lab,
   },
@@ -97,16 +97,16 @@ export const news: NewsItem[] = [
     title: 'Library Expansion Adds 2,000 New Books and a Digital Archive',
     excerpt:
       'The school library has doubled its reading space and added 2,000 new titles, alongside a digital archive that gives students access to past papers, e-books and research journals from any campus computer or personal device.',
-    date: '2025-09-21',
+    date: '2026-08-25',
     category: 'Facilities',
     image: images.library,
   },
   {
     id: 'n6',
-    title: 'Form Five Scholarships Announced for 2026 Intake',
+    title: 'Form Five Scholarships Announced for 2027 Intake',
     excerpt:
-      'Ten full scholarships and twenty partial bursaries are available for outstanding students joining Form Five in 2026. Applications open in January — see the admissions page for criteria, required documents and deadlines.',
-    date: '2025-08-30',
+      'Ten full scholarships and twenty partial bursaries are available for outstanding students joining Form Five in 2027. Applications open in January — see the admissions page for criteria, required documents and deadlines.',
+    date: '2026-08-05',
     category: 'Admissions',
     image: images.students,
   },
@@ -118,63 +118,64 @@ export const news: NewsItem[] = [
 export interface EventItem {
   id: string
   title: string
-  day: string
-  month: string
+  /** Start date as `YYYY-MM-DD`. */
+  startDate: string
   time: string
   location: string
   description: string
+  category?: string
 }
 
 export const events: EventItem[] = [
   {
     id: 'e1',
-    title: 'Open Day & Campus Tour',
-    day: '14',
-    month: 'MAR',
-    time: '9:00 AM – 2:00 PM',
-    location: 'Main Campus',
-    description:
-      'Prospective families are invited to tour our campus, meet teachers and see classes in session. No booking required — simply register at the front desk on arrival.',
-  },
-  {
-    id: 'e2',
     title: 'Parent–Teacher Conference',
-    day: '28',
-    month: 'FEB',
+    startDate: '2026-11-28',
     time: '8:30 AM – 3:00 PM',
     location: 'Main Hall',
     description:
       'One-on-one meetings between parents and subject teachers to review each student\u2019s progress, mock results and study plan ahead of national examinations.',
+    category: 'Academic',
   },
   {
-    id: 'e3',
+    id: 'e2',
     title: 'Mid-Term Examinations (Form 1 – Form 5)',
-    day: '02',
-    month: 'MAR',
+    startDate: '2026-11-16',
     time: 'All Week',
     location: 'Exam Halls',
     description:
       'Mid-term assessments across all subjects. Students should confirm their personal timetable with their class teacher and arrive 20 minutes before each session.',
+    category: 'Academic',
+  },
+  {
+    id: 'e3',
+    title: 'Open Day & Campus Tour',
+    startDate: '2026-12-12',
+    time: '9:00 AM – 2:00 PM',
+    location: 'Main Campus',
+    description:
+      'Prospective families are invited to tour our campus, meet teachers and see classes in session. No booking required — simply register at the front desk on arrival.',
+    category: 'Public',
   },
   {
     id: 'e4',
     title: 'Inter-House Sports Gala',
-    day: '10',
-    month: 'APR',
+    startDate: '2027-01-23',
     time: '8:00 AM – 4:00 PM',
     location: 'Sports Complex',
     description:
       'The four school houses compete in athletics, football, netball and volleyball. Parents and alumni are warmly invited — food stalls and live commentary all day.',
+    category: 'Sports',
   },
   {
     id: 'e5',
     title: 'Form Six Graduation Ceremony',
-    day: '22',
-    month: 'MAY',
+    startDate: '2027-03-20',
     time: '10:00 AM – 1:00 PM',
     location: 'Main Hall & Gardens',
     description:
       'A formal celebration of our Form Six graduates, their families and teachers. The ceremony includes awards for academic excellence, leadership and service.',
+    category: 'Ceremony',
   },
 ]
 

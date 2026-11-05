@@ -25,6 +25,7 @@ export type PageId =
   | 'news'
   | 'student-life'
   | 'contact'
+  | 'admin'
 
 export interface NavItem {
   id: PageId
@@ -110,6 +111,21 @@ export const schoolConfig = {
     { id: 'student-life', label: 'Student Life' },
     { id: 'contact', label: 'Contact' },
   ] as NavItem[],
+
+  // ---------------------------------------------------------------------------
+  // 6. ADMIN PANEL (Phase 2)
+  //    Staff manage news, events, staff directory and contact messages at the
+  //    `/admin` view (or via the "Staff Login" link in the footer).
+  //    ⚠ CHANGE the password and secret before deploying for a real school!
+  // ---------------------------------------------------------------------------
+  admin: {
+    /** Login password for the admin panel. */
+    password: 'admin123',
+    /** Secret used to sign session cookies — set a long random string. */
+    secret: 'brightfield-template-secret-change-me-in-production',
+    /** Display name shown in the admin top bar. */
+    label: 'Website Administrator',
+  },
 }
 
 export type SchoolConfig = typeof schoolConfig
