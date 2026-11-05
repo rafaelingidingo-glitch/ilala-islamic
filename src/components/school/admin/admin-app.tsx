@@ -8,6 +8,7 @@
 import { useEffect, useState } from 'react'
 import {
   CalendarDays,
+  ClipboardList,
   ExternalLink,
   GraduationCap,
   Inbox,
@@ -23,15 +24,17 @@ import { cn } from '@/lib/utils'
 import { schoolConfig } from '@/config/school-config'
 import { AdminLogin } from './admin-login'
 import { Dashboard } from './dashboard'
+import { ApplicationsManager } from './applications-manager'
 import { NewsManager } from './news-manager'
 import { EventsManager } from './events-manager'
 import { StaffManager } from './staff-manager'
 import { MessagesInbox } from './messages-inbox'
 
-type AdminTab = 'dashboard' | 'news' | 'events' | 'staff' | 'messages'
+type AdminTab = 'dashboard' | 'applications' | 'news' | 'events' | 'staff' | 'messages'
 
 const TABS: { id: AdminTab; label: string; icon: typeof LayoutDashboard }[] = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'applications', label: 'Applications', icon: ClipboardList },
   { id: 'news', label: 'News', icon: Newspaper },
   { id: 'events', label: 'Events', icon: CalendarDays },
   { id: 'staff', label: 'Staff', icon: Users },
@@ -44,6 +47,7 @@ export function AdminApp({ onNavigate }: { onNavigate: (page: 'home') => void })
   const [authed, setAuthed] = useState<boolean | null>(null) // null = checking
   const [tab, setTab] = useState<AdminTab>('dashboard')
   const [unread, setUnread] = useState(0)
+  const [pendingApps, setPendingApps] = useState(0)
   const [loggingOut, setLoggingOut] = useState(false)
 
   // Check the session cookie on mount (e.g. returning within 7 days).
@@ -61,6 +65,23 @@ export function AdminApp({ onNavigate }: { onNavigate: (page: 'home') => void })
       cancelled = true
     }
   }, [])
+
+  // Once signed in, load the pending-applications count for the sidebar badge.
+  useEffect(() => {
+    if (authed !== true) return
+    let cancelled = false
+    fetch('/api/applications')
+      .then((res) => res.json())
+      .then((json) => {
+        if (!cancelled && json.ok) setPendingApps(json.data.stats.pending)
+      })
+      .catch(() => {
+        /* badge is non-critical */
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [authed])
 
   const handleLogout = async () => {
     setLoggingOut(true)
@@ -157,6 +178,11 @@ export function AdminApp({ onNavigate }: { onNavigate: (page: 'home') => void })
                       {unread}
                     </span>
                   )}
+                  {id === 'applications' && pendingApps > 0 && (
+                    <span className="rounded-full bg-white px-1.5 text-[10px] font-bold text-slate-900">
+                      {pendingApps}
+                    </span>
+                  )}
                 </button>
               </li>
             ))}
@@ -194,6 +220,16 @@ export function AdminApp({ onNavigate }: { onNavigate: (page: 'home') => void })
                         {unread}
                       </span>
                     )}
+                    {id === 'applications' && pendingApps > 0 && (
+                      <span
+                        className={cn(
+                          'ml-auto rounded-full px-2 py-0.5 text-[11px] font-bold',
+                          tab === id ? 'bg-white/25 text-white' : 'bg-red-100 text-red-600'
+                        )}
+                      >
+                        {pendingApps}
+                      </span>
+                    )}
                   </button>
                 </li>
               ))}
@@ -211,6 +247,7 @@ export function AdminApp({ onNavigate }: { onNavigate: (page: 'home') => void })
         {/* Content */}
         <main className="min-w-0 flex-1 pb-10">
           {tab === 'dashboard' && <Dashboard onGoTab={setTab} onUnread={setUnread} />}
+          {tab === 'applications' && <ApplicationsManager onPending={setPendingApps} />}
           {tab === 'news' && <NewsManager />}
           {tab === 'events' && <EventsManager />}
           {tab === 'staff' && <StaffManager />}

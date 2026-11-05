@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   if (denied) return denied
 
   try {
-    const [messages, unread, totalMessages, newsTotal, newsPublished, staffTotal, allEvents] =
+    const [messages, unread, totalMessages, newsTotal, newsPublished, staffTotal, allEvents, appsTotal, appsPending] =
       await Promise.all([
         db.contactMessage.findMany({ orderBy: [{ read: 'asc' }, { createdAt: 'desc' }] }),
         db.contactMessage.count({ where: { read: false } }),
@@ -21,6 +21,8 @@ export async function GET(request: NextRequest) {
         db.news.count({ where: { published: true } }),
         db.staff.count(),
         db.event.findMany({ where: { published: true }, select: { startDate: true } }),
+        db.application.count(),
+        db.application.count({ where: { status: 'PENDING' } }),
       ])
 
     const today = new Date().toISOString().slice(0, 10)
@@ -36,6 +38,8 @@ export async function GET(request: NextRequest) {
       staffTotal,
       messagesUnread: unread,
       messagesTotal: totalMessages,
+      applicationsPending: appsPending,
+      applicationsTotal: appsTotal,
     }
 
     const data: MessageDto[] = messages.map((m) => ({

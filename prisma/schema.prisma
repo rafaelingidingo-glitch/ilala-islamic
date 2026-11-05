@@ -69,3 +69,50 @@ model ContactMessage {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+// ---------------------------------------------------------------------------
+// APPLICATIONS — online admission applications submitted from the public
+// Admissions page. Each application gets a unique reference number
+// (e.g. `BS-2026-0001`) that parents use to track its status.
+// Status workflow: PENDING → UNDER_REVIEW → INTERVIEW → ACCEPTED /
+// WAITLISTED / REJECTED. SQLite has no enums, so status is a plain string.
+// ---------------------------------------------------------------------------
+model Application {
+  id                String    @id @default(cuid())
+  applicationNumber String    @unique
+  academicYear      Int
+
+  // --- Applicant (student) -------------------------------------------------
+  firstName         String
+  middleName        String    @default("")
+  lastName          String
+  dateOfBirth       DateTime
+  gender            String // "Male" | "Female"
+  entryClass        String // "Form 1" … "Form 6"
+  boarding          String    @default("Day") // "Day" | "Boarding"
+  previousSchool    String
+
+  // --- Academic background -------------------------------------------------
+  examType          String    @default("") // PSLE / CSEE / FTNA
+  examIndex         String    @default("") // examination index number
+  examResults       String    @default("") // division / marks summary
+  personalStatement String    @default("")
+
+  // --- Parent / guardian ---------------------------------------------------
+  parentName        String
+  parentRelationship String // Mother / Father / Guardian / Other
+  parentEmail       String
+  parentPhone       String
+  parentAddress     String    @default("")
+
+  // --- Extra information from the applicant --------------------------------
+  notes             String    @default("") // how they heard about us, questions…
+
+  // --- Admissions office workflow ------------------------------------------
+  status            String    @default("PENDING")
+  adminNotes        String    @default("") // private notes, never shown publicly
+  reviewedAt        DateTime?
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}

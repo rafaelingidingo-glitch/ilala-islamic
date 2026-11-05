@@ -22,3 +22,23 @@ Stage Summary:
 - Key files: `src/config/school-config.ts` (rebrand here), `src/data/site-content.ts` (edit content here), 7 page components in `src/components/school/pages/`, API at `src/app/api/contact/route.ts`
 - Verified end-to-end: navigation, theming, forms, DB persistence, mobile responsiveness, accessibility
 - Phase 2 ready: admin inbox for ContactMessage, dynamic news/events management
+
+---
+Task ID: 2
+Agent: Main agent (Z.ai)
+Task: Online admissions — customize the Admissions page so parents can apply online and track their application
+
+Work Log:
+- Added Prisma `Application` model (reference number, student/academic/parent fields, status workflow PENDING → UNDER_REVIEW → INTERVIEW → ACCEPTED/WAITLISTED/REJECTED, adminNotes, reviewedAt); pushed to SQLite with `db:push`
+- Extended `school-config.ts` with an `admissions` section (onlineApplicationsOpen master switch, intakeYear, opensOn/closesOn window, applicationFee, classesOffered, referencePrefix) — rebrandable like the rest of the template
+- New APIs: `POST /api/applications` (public, zod-validated, closed-intake guard, sequential reference `BS-2026-0001`), `GET /api/applications` (admin: list + per-status stats + search), `GET/PATCH/DELETE /api/applications/[id]` (admin, reviewedAt stamped on status change), `POST /api/applications/track` (public; requires reference + matching parent email, uniform 404 to avoid enumeration)
+- Public components in `src/components/school/admissions/`: `apply-form.tsx` (4-step wizard — Student → Academics → Parent/Guardian → Review & Submit, per-step validation, exam type auto-derived from entry class, success screen with copyable reference number + next steps) and `track-status.tsx` (reference + email lookup, status timeline with current-stage highlighting)
+- Admissions page: added an overlapping "Apply online" banner card (open/closed chip, window dates, fee note, Start/Track CTAs) and full-screen apply/track views; updated step-1 copy
+- Admin: new `applications-manager.tsx` (stat cards, status filter chips, search, detail dialog with status Select + private notes + delete), "Applications" tab with pending-count badge in `admin-app.tsx`, dashboard now shows pending-applications card + latest applications list + quick action
+- Restarted dev server to pick up regenerated Prisma client (stale globalThis singleton had no Application model)
+- Verified: lint clean; 10 API tests via curl (submission, sequencing, tracker security 404s, auth guard, PATCH validation); agent-browser E2E — full wizard submit → success `BS-2026-0003` → tracker prefill → status lookup; admin login → badge "2" → open application → status → Accepted saves and public tracker instantly reflects it; filter/search; delete flow (row gone + API 404); mobile 390px apply form renders cleanly; screenshots of admissions banner, admin manager, tracker timeline all correct; dev.log free of errors
+
+Stage Summary:
+- Deliverable: fully working online admissions (apply + track + admin review) inside the school template
+- Key files: `prisma/schema.prisma` (Application), `src/app/api/applications/*`, `src/components/school/admissions/{apply-form,track-status}.tsx`, `src/components/school/admin/applications-manager.tsx`, `school-config.ts` admissions section
+- Sample data left in DB: BS-2026-0001 (Accepted), BS-2026-0002/0003 (Pending) for demo purposes

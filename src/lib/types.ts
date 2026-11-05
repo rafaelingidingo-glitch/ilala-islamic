@@ -51,6 +51,79 @@ export interface MessageDto {
   createdAt: string
 }
 
+// ---------------------------------------------------------------------------
+// Online admissions
+// ---------------------------------------------------------------------------
+
+/** Application statuses, in workflow order. SQLite has no enums. */
+export const APPLICATION_STATUSES = [
+  'PENDING',
+  'UNDER_REVIEW',
+  'INTERVIEW',
+  'ACCEPTED',
+  'WAITLISTED',
+  'REJECTED',
+] as const
+
+export type ApplicationStatus = (typeof APPLICATION_STATUSES)[number]
+
+export interface ApplicationDto {
+  id: string
+  /** Public reference, e.g. `BS-2026-0001`. */
+  applicationNumber: string
+  academicYear: number
+  firstName: string
+  middleName: string
+  lastName: string
+  /** `YYYY-MM-DD`. */
+  dateOfBirth: string
+  gender: string
+  entryClass: string
+  boarding: string
+  previousSchool: string
+  examType: string
+  examIndex: string
+  examResults: string
+  personalStatement: string
+  parentName: string
+  parentRelationship: string
+  parentEmail: string
+  parentPhone: string
+  parentAddress: string
+  notes: string
+  status: ApplicationStatus
+  adminNotes: string
+  /** ISO datetime, null until first review action. */
+  reviewedAt: string | null
+  /** ISO datetime. */
+  createdAt: string
+  updatedAt: string
+}
+
+/** Limited public shape returned by the status tracker (no admin/private fields). */
+export interface ApplicationTrackDto {
+  applicationNumber: string
+  studentName: string
+  entryClass: string
+  boarding: string
+  academicYear: number
+  status: ApplicationStatus
+  /** `YYYY-MM-DD` the application was submitted. */
+  submittedOn: string
+  /** ISO datetime of the last status change. */
+  lastUpdated: string
+}
+
+export interface ApplicationStats {
+  total: number
+  pending: number
+  underReview: number
+  interview: number
+  accepted: number
+  waitlisted: number
+  rejected: number
+}
+
 export interface AdminStats {
   newsTotal: number
   newsPublished: number
@@ -59,4 +132,6 @@ export interface AdminStats {
   staffTotal: number
   messagesUnread: number
   messagesTotal: number
+  applicationsPending: number
+  applicationsTotal: number
 }

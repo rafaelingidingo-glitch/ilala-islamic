@@ -1,6 +1,7 @@
 'use client'
 
-import { FileText, HelpCircle } from 'lucide-react'
+import { useState } from 'react'
+import { CalendarClock, FileText, FileSearch, HelpCircle, MonitorSmartphone } from 'lucide-react'
 import {
   Accordion,
   AccordionContent,
@@ -18,7 +19,10 @@ import {
 } from '@/components/ui/table'
 import { Button } from '@/components/ui/button'
 import { PageHero, SectionHeading } from '@/components/school/shared'
+import { OnlineApplyForm } from '@/components/school/admissions/apply-form'
+import { TrackApplicationStatus } from '@/components/school/admissions/track-status'
 import { schoolConfig, type PageId } from '@/config/school-config'
+import { formatDate } from '@/lib/format'
 import {
   admissionSteps,
   faqs,
@@ -32,8 +36,21 @@ interface AdmissionsPageProps {
   onNavigate: (page: PageId) => void
 }
 
+/** Which view of the admissions area is showing. */
+type AdmissionsView = 'info' | 'apply' | 'track'
+
 export function AdmissionsPage({ onNavigate }: AdmissionsPageProps) {
-  const { theme, contact, identity } = schoolConfig
+  const { theme, contact, identity, admissions } = schoolConfig
+  const [view, setView] = useState<AdmissionsView>('info')
+  const [trackNumber, setTrackNumber] = useState<string | undefined>(undefined)
+
+  // --- Full-screen online application / tracker views --------------------
+  if (view === 'apply') {
+    return <OnlineApplyForm onBack={() => setView('info')} onTrack={(n) => { setTrackNumber(n); setView('track') }} />
+  }
+  if (view === 'track') {
+    return <TrackApplicationStatus onBack={() => setView('info')} initialApplicationNumber={trackNumber} />
+  }
 
   return (
     <div>
@@ -44,6 +61,81 @@ export function AdmissionsPage({ onNavigate }: AdmissionsPageProps) {
         description={`Joining ${identity.shortName} is a simple four-step process. Places are offered on a rolling basis — early applications are encouraged.`}
         image={images.studentsAlt}
       />
+
+      {/* ONLINE APPLICATION BANNER */}
+      <section aria-labelledby="online-apply" className="relative z-10 -mt-8 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <div
+            className="overflow-hidden rounded-2xl bg-white p-6 shadow-xl ring-1 ring-black/5 sm:p-8"
+          >
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="min-w-0">
+                <p
+                  className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-widest"
+                  style={{
+                    backgroundColor: admissions.onlineApplicationsOpen ? theme.tint : '#fef2f2',
+                    color: admissions.onlineApplicationsOpen ? theme.primaryDark : '#b91c1c',
+                  }}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ backgroundColor: admissions.onlineApplicationsOpen ? '#22c55e' : '#ef4444' }}
+                  />
+                  {admissions.onlineApplicationsOpen
+                    ? `Applications open — ${admissions.intakeYear} intake`
+                    : 'Applications currently closed'}
+                </p>
+                <h2 id="online-apply" className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900">
+                  Apply online — no paperwork needed
+                </h2>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-600">
+                  Complete the whole application from your phone or computer in about 10 minutes.
+                  You&apos;ll receive a reference number to track your application at every stage.
+                  Window: {formatDate(admissions.opensOn)} – {formatDate(admissions.closesOn)}.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col">
+                <Button
+                  size="lg"
+                  disabled={!admissions.onlineApplicationsOpen}
+                  onClick={() => { setTrackNumber(undefined); setView('apply') }}
+                  className="text-base font-bold text-white shadow-md transition-transform hover:scale-[1.02]"
+                  style={{ backgroundColor: theme.primary }}
+                >
+                  <MonitorSmartphone className="mr-2 h-5 w-5" aria-hidden="true" />
+                  {admissions.onlineApplicationsOpen ? 'Start Online Application' : 'Applications Closed'}
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => { setTrackNumber(undefined); setView('track') }}
+                  className="text-base font-semibold"
+                >
+                  <FileSearch className="mr-2 h-5 w-5" aria-hidden="true" />
+                  Track Application
+                </Button>
+              </div>
+            </div>
+            <div
+              className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t pt-4 text-xs font-medium text-slate-500"
+            >
+              <span className="inline-flex items-center gap-1.5">
+                <CalendarClock className="h-3.5 w-3.5" style={{ color: theme.primary }} aria-hidden="true" />
+                Application fee: {admissions.applicationFee} (payable after submission)
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <FileText className="h-3.5 w-3.5" style={{ color: theme.primary }} aria-hidden="true" />
+                No documents to upload — bring them to the assessment
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <HelpCircle className="h-3.5 w-3.5" style={{ color: theme.primary }} aria-hidden="true" />
+                Help: {contact.admissionsEmail}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* STEPS */}
       <section className="py-20">

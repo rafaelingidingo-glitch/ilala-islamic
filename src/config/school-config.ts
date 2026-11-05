@@ -113,7 +113,29 @@ export const schoolConfig = {
   ] as NavItem[],
 
   // ---------------------------------------------------------------------------
-  // 6. ADMIN PANEL (Phase 2)
+  // 6. ONLINE ADMISSIONS
+  //    Controls the online application form on the Admissions page and the
+  //    applicant status tracker. Turn `onlineApplicationsOpen` off to close
+  //    intake (the form shows a "closed" notice) without touching code.
+  // ---------------------------------------------------------------------------
+  admissions: {
+    /** Master switch for the online application form. */
+    onlineApplicationsOpen: true,
+    /** Academic year applicants are applying to join. */
+    intakeYear: 2026,
+    /** Application window (shown to parents as guidance). */
+    opensOn: '2026-01-05',
+    closesOn: '2026-09-30',
+    /** Non-refundable application processing fee, shown before submission. */
+    applicationFee: 'TZS 10,000',
+    /** Classes open for online application (Select options in the form). */
+    classesOffered: ['Form 1', 'Form 2', 'Form 3', 'Form 4', 'Form 5', 'Form 6'],
+    /** Reference-number prefix, e.g. `BS-2026-0001`. */
+    referencePrefix: 'BS',
+  },
+
+  // ---------------------------------------------------------------------------
+  // 7. ADMIN PANEL (Phase 2)
   //    Staff manage news, events, staff directory and contact messages at the
   //    `/admin` view (or via the "Staff Login" link in the footer).
   //    ⚠ CHANGE the password and secret before deploying for a real school!

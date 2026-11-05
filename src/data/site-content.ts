@@ -318,7 +318,7 @@ export const admissionSteps: AdmissionStep[] = [
     step: 1,
     title: 'Submit Application',
     description:
-      'Complete the application form (online or at the school office) and attach the required documents. A small, non-refundable application fee applies.',
+      'Apply online in about 10 minutes — you\u2019ll instantly receive a reference number to track your application. Paper forms are still available at the school office.',
   },
   {
     step: 2,

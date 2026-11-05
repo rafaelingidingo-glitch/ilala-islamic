@@ -5,16 +5,17 @@
  */
 
 import { useEffect, useState } from 'react'
-import { CalendarCheck, Inbox, Loader2, Newspaper, Plus, Users } from 'lucide-react'
+import { CalendarCheck, ClipboardList, Inbox, Loader2, Newspaper, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/hooks/use-toast'
 import { schoolConfig } from '@/config/school-config'
 import { formatDateTime } from '@/lib/format'
-import type { AdminStats, MessageDto, NewsDto } from '@/lib/types'
+import { STATUS_META } from '@/lib/application-status'
+import type { AdminStats, ApplicationDto, MessageDto, NewsDto } from '@/lib/types'
 import { AdminStatCard } from './admin-shared'
 
 interface DashboardProps {
-  onGoTab: (tab: 'news' | 'events' | 'staff' | 'messages') => void
+  onGoTab: (tab: 'applications' | 'news' | 'events' | 'staff' | 'messages') => void
   onUnread: (n: number) => void
 }
 
@@ -23,6 +24,7 @@ export function Dashboard({ onGoTab, onUnread }: DashboardProps) {
   const [stats, setStats] = useState<AdminStats | null>(null)
   const [messages, setMessages] = useState<MessageDto[]>([])
   const [news, setNews] = useState<NewsDto[]>([])
+  const [applications, setApplications] = useState<ApplicationDto[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -30,18 +32,21 @@ export function Dashboard({ onGoTab, onUnread }: DashboardProps) {
 
     async function load() {
       try {
-        const [msgRes, newsRes] = await Promise.all([
+        const [msgRes, newsRes, appsRes] = await Promise.all([
           fetch('/api/messages'),
           fetch('/api/news?all=1'),
+          fetch('/api/applications'),
         ])
         const msgJson = await msgRes.json()
         const newsJson = await newsRes.json()
+        const appsJson = await appsRes.json()
         if (!msgJson.ok) throw new Error(msgJson.error || 'Failed to load stats')
         if (!cancelled) {
           setStats(msgJson.data.stats)
           setMessages(msgJson.data.messages)
           onUnread(msgJson.data.stats.messagesUnread)
           if (newsJson.ok) setNews(newsJson.data)
+          if (appsJson.ok) setApplications(appsJson.data.applications)
         }
       } catch (err) {
         if (!cancelled) {
@@ -83,6 +88,12 @@ export function Dashboard({ onGoTab, onUnread }: DashboardProps) {
           {/* Stat cards */}
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <AdminStatCard
+              icon={ClipboardList}
+              label="Pending Applications"
+              value={stats?.applicationsPending ?? '—'}
+              hint={`${stats?.applicationsTotal ?? 0} received in total`}
+            />
+            <AdminStatCard
               icon={Newspaper}
               label="News Articles"
               value={stats ? `${stats.newsPublished} / ${stats.newsTotal}` : '—'}
@@ -94,7 +105,6 @@ export function Dashboard({ onGoTab, onUnread }: DashboardProps) {
               value={stats?.eventsUpcoming ?? '—'}
               hint={`${stats?.eventsTotal ?? 0} in total`}
             />
-            <AdminStatCard icon={Users} label="Staff Members" value={stats?.staffTotal ?? '—'} />
             <AdminStatCard
               icon={Inbox}
               label="Unread Messages"
@@ -104,6 +114,50 @@ export function Dashboard({ onGoTab, onUnread }: DashboardProps) {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
+            {/* Recent applications */}
+            <section aria-labelledby="dash-apps" className="rounded-2xl border bg-white shadow-sm">
+              <div className="flex items-center justify-between border-b px-5 py-4">
+                <h2 id="dash-apps" className="font-bold text-slate-900">
+                  Latest admission applications
+                </h2>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="font-semibold"
+                  onClick={() => onGoTab('applications')}
+                >
+                  Review applications
+                </Button>
+              </div>
+              <ul className="divide-y">
+                {applications.slice(0, 5).map((a) => (
+                  <li key={a.id} className="flex items-center justify-between gap-4 px-5 py-3.5">
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-medium text-slate-800">
+                        {[a.firstName, a.lastName].filter(Boolean).join(' ')}{' '}
+                        <span className="font-mono text-xs text-slate-400">
+                          {a.applicationNumber}
+                        </span>
+                      </span>
+                      <span className="mt-0.5 block truncate text-xs text-slate-500">
+                        {a.entryClass} · {formatDateTime(a.createdAt)}
+                      </span>
+                    </span>
+                    <span
+                      className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${STATUS_META[a.status]?.badgeClass ?? ''}`}
+                    >
+                      {STATUS_META[a.status]?.label ?? a.status}
+                    </span>
+                  </li>
+                ))}
+                {applications.length === 0 && (
+                  <li className="px-5 py-8 text-center text-sm text-slate-400">
+                    No applications yet.
+                  </li>
+                )}
+              </ul>
+            </section>
+
             {/* Recent messages */}
             <section aria-labelledby="dash-messages" className="rounded-2xl border bg-white shadow-sm">
               <div className="flex items-center justify-between border-b px-5 py-4">
@@ -191,7 +245,14 @@ export function Dashboard({ onGoTab, onUnread }: DashboardProps) {
 
           {/* Quick actions */}
           <section aria-label="Quick actions" className="flex flex-wrap gap-3">
-            <Button onClick={() => onGoTab('news')} className="text-white" style={{ backgroundColor: schoolConfig.theme.primary }}>
+            <Button
+              onClick={() => onGoTab('applications')}
+              className="text-white"
+              style={{ backgroundColor: schoolConfig.theme.primary }}
+            >
+              <ClipboardList className="mr-2 h-4 w-4" aria-hidden="true" /> Review applications
+            </Button>
+            <Button onClick={() => onGoTab('news')} variant="outline" className="font-semibold">
               <Plus className="mr-2 h-4 w-4" aria-hidden="true" /> Add news article
             </Button>
             <Button onClick={() => onGoTab('events')} variant="outline" className="font-semibold">
