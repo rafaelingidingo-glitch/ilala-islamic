@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import {
   Facebook,
-  GraduationCap,
   Instagram,
   Mail,
   Menu,
@@ -39,35 +38,20 @@ export function Logo({
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-2.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md py-1"
+      className="rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       aria-label={`Go to home — ${identity.name}`}
     >
-      <span
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white shadow-sm"
-        style={{
-          background: `linear-gradient(135deg, ${schoolConfig.theme.primary}, ${schoolConfig.theme.primaryDark})`,
-        }}
-      >
-        <GraduationCap className="h-5.5 w-5.5" aria-hidden="true" />
-      </span>
-      <span className="leading-tight">
-        <span
-          className={cn(
-            'block text-[15px] font-bold tracking-tight',
-            variant === 'light' ? 'text-[color:var(--sch-navy)]' : 'text-white'
-          )}
-        >
-          {identity.name}
-        </span>
-        <span
-          className={cn(
-            'block text-[11px] font-medium',
-            variant === 'light' ? 'text-muted-foreground' : 'text-white/70'
-          )}
-        >
-          {identity.motto}
-        </span>
-      </span>
+      {/* School crest only — swap `/school-logo.avif` in `public/` to change it. */}
+      <img
+        src="/school-logo.avif"
+        alt={`${identity.name} logo`}
+        width={44}
+        height={44}
+        className={cn(
+          'h-11 w-11 rounded-full object-cover shadow-sm',
+          variant === 'footer' && 'ring-2 ring-white/30'
+        )}
+      />
     </button>
   )
 }

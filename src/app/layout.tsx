@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     "school template",
   ],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/school-logo-icon.png",
+    apple: "/school-logo-apple.png",
   },
   openGraph: {
     title: "Brightfield Secondary School",
