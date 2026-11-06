@@ -57,14 +57,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-36">
           <div className="max-w-2xl">
-            <span
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white"
-              style={{ backgroundColor: 'rgba(255,255,255,0.14)', backdropFilter: 'blur(4px)' }}
-            >
-              <GraduationCap className="h-3.5 w-3.5" aria-hidden="true" />
-              {identity.type} · Est. {identity.established}
-            </span>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Welcome to {identity.shortName} Secondary School
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-white/85 sm:text-xl">
