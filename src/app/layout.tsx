@@ -14,27 +14,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Brightfield Secondary School — Knowledge • Character • Excellence",
+  title: "Ilala Islamic Secondary School — Elimu Bora • Malezi ya Kiislamu",
   description:
-    "Official website of Brightfield Secondary School. O-Level & A-Level education with a 96% national exam pass rate. Admissions open for the new academic year.",
+    "Official website of Ilala Islamic Secondary School — a private Islamic day and boarding school in Amana, Ilala, Dar es Salaam. NECTA Centre S2348. Nursery to Form 6 mixed secondary school (boys and girls). Admissions open.",
   keywords: [
-    "secondary school",
-    "school website",
+    "Ilala Islamic Secondary School",
+    "Islamic school Dar es Salaam",
+    "NECTA S2348",
+    "mixed secondary school",
+    "Amana Ilala",
     "admissions",
     "O-Level",
     "A-Level",
-    "education",
-    "school template",
+    "Islamic education Tanzania",
   ],
   icons: {
     icon: "/school-logo-icon.png",
     apple: "/school-logo-apple.png",
   },
   openGraph: {
-    title: "Brightfield Secondary School",
+    title: "Ilala Islamic Secondary School",
     description:
-      "A modern secondary school where every student thrives — Knowledge, Character, Excellence.",
-    siteName: "Brightfield Secondary School",
+      "Quality education and excellent Islamic upbringing — Elimu Bora • Malezi ya Kiislamu — Nursery to Form 6 in Amana, Ilala, Dar es Salaam.",
+    siteName: "Ilala Islamic Secondary School",
     type: "website",
   },
 };

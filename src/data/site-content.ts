@@ -1,21 +1,26 @@
-/**
+﻿/**
  * ============================================================================
- *  SAMPLE SITE CONTENT — replace per school
+ *  SITE CONTENT — ILALA ISLAMIC SECONDARY SCHOOL
  * ============================================================================
- *  All page content lives here (news, events, staff, fees, FAQs, clubs...).
- *  Schools replace these arrays with their own content — the pages render
+ *  All page content lives here (news, events, staff, departments, streams,
+ *  admission steps, fees, FAQs, clubs, facilities, testimonials, gallery).
+ *  Replace these arrays with the school's own content — the pages render
  *  whatever is here, so no component code needs to change.
- *  Image URLs point to demo photos; swap them for the school's own photos.
+ *  Image URLs below are demo photos; point them at the school's own photos.
  * ============================================================================
  */
 import type { LucideIcon } from 'lucide-react'
 import {
+  BookOpen,
+  Briefcase,
   Calculator,
   FlaskConical,
   Globe2,
-  Landmark,
   Laptop,
+  Music2,
   ScrollText,
+  Shield,
+  Users,
 } from 'lucide-react'
 
 // ---------------------------------------------------------------------------
@@ -57,57 +62,48 @@ export interface NewsItem {
 export const news: NewsItem[] = [
   {
     id: 'n1',
-    title: 'Form Four Students Achieve 96% Pass Rate in National Examinations',
+    title: 'Ilala Islamic Shines in 2025 NECTA Examinations',
     excerpt:
-      'We are proud to announce that our Form Four class has achieved a 96% pass rate in the national examinations, with 41% of candidates earning Division One results. This outstanding performance reflects the dedication of our students, teachers and parents, and keeps Brightfield among the top-performing schools in the region.',
-    date: '2026-10-27',
+      'Our Form Four candidates posted strong results in the 2025 Certificate of Secondary Education Examination, with several students earning Division One at NECTA Centre S2348. Alhamdulillah, this reflects the commitment of our students, teachers and parents to Elimu Bora and Malezi ya Kiislamu.',
+    date: '2026-02-10',
     category: 'Academics',
     image: images.classroom,
     featured: true,
   },
   {
     id: 'n2',
-    title: 'New Science & Innovation Laboratory Officially Opened',
+    title: 'Annual Holy Qur\'an Memorisation Competition',
     excerpt:
-      'Our brand-new, fully equipped science laboratory is now open, serving Physics, Chemistry and Biology practicals for all forms. The facility features modern workstations, fume hoods and digital sensors, and was funded jointly by the school board, parents and alumni partners.',
-    date: '2026-10-14',
-    category: 'Facilities',
-    image: images.labAlt,
+      'Students from Nursery to Form 6 took part in the school\'s annual Qur\'an memorisation (hifz) and tajwid competition at the Amana campus. Prizes were awarded to the best reciters in each level.',
+    date: '2026-01-19',
+    category: 'Religious',
+    image: images.assembly,
   },
   {
     id: 'n3',
-    title: 'Brightfield Wins Regional Inter-School Football Championship',
+    title: 'Arabic Language Programme Expanded to All Forms',
     excerpt:
-      'Our senior football team lifted the regional inter-school trophy after an unbeaten campaign, defeating 14 other schools along the way. Captain Emmanuel M. was named Player of the Tournament, and three players have been selected for the regional youth squad.',
-    date: '2026-09-30',
-    category: 'Sports',
-    image: images.sports,
+      'Arabic Language is now taught from Primary through Form 6, supporting Qur\'an understanding and preparing students for NECTA Arabic examinations.',
+    date: '2026-01-05',
+    category: 'Academics',
+    image: images.classroomAlt,
   },
   {
     id: 'n4',
-    title: 'Annual Science Fair Showcases 40+ Student Projects',
+    title: 'Form Six Graduation Ceremony — Class of 2026',
     excerpt:
-      'More than forty projects were presented at this year\u2019s science fair, ranging from low-cost water filtration models to a solar-powered classroom lighting prototype. The winning team will represent the school at the national science week in Dodoma.',
-    date: '2026-09-12',
-    category: 'Academics',
-    image: images.lab,
+      'Families, teachers and guests joined our Form Six graduates at the Main Hall for the annual graduation ceremony, celebrating academic achievement and Islamic character.',
+    date: '2026-03-20',
+    category: 'Ceremony',
+    image: images.studentsGroup,
   },
   {
     id: 'n5',
-    title: 'Library Expansion Adds 2,000 New Books and a Digital Archive',
+    title: 'Boarding Students Excel in Mid-Term Assessments',
     excerpt:
-      'The school library has doubled its reading space and added 2,000 new titles, alongside a digital archive that gives students access to past papers, e-books and research journals from any campus computer or personal device.',
-    date: '2026-08-25',
-    category: 'Facilities',
-    image: images.library,
-  },
-  {
-    id: 'n6',
-    title: 'Form Five Scholarships Announced for 2027 Intake',
-    excerpt:
-      'Ten full scholarships and twenty partial bursaries are available for outstanding students joining Form Five in 2027. Applications open in January — see the admissions page for criteria, required documents and deadlines.',
-    date: '2026-08-05',
-    category: 'Admissions',
+      'Our bweni (boarding) students recorded strong results in the mid-term assessments, with supervised evening prep and Qur\'an programmes supporting their success.',
+    date: '2026-03-02',
+    category: 'Boarding',
     image: images.students,
   },
 ]
@@ -118,69 +114,74 @@ export const news: NewsItem[] = [
 export interface EventItem {
   id: string
   title: string
-  /** Start date as `YYYY-MM-DD`. */
-  startDate: string
-  time: string
-  location: string
   description: string
-  category?: string
+  location: string
+  time: string
+  category: string
+  published: boolean
+  startDate: string
 }
 
 export const events: EventItem[] = [
   {
     id: 'e1',
-    title: 'Parent–Teacher Conference',
-    startDate: '2026-11-28',
-    time: '8:30 AM – 3:00 PM',
-    location: 'Main Hall',
+    title: 'Friday Congregational Prayer (Jumu\'ah)',
     description:
-      'One-on-one meetings between parents and subject teachers to review each student\u2019s progress, mock results and study plan ahead of national examinations.',
-    category: 'Academic',
+      'Weekly Jumu\'ah prayer and khutbah at the school mosque. All students and staff attend.',
+    location: 'School Mosque, Amana Campus',
+    time: '12:30 PM – 1:30 PM',
+    category: 'Religious',
+    published: true,
+    startDate: '2026-02-06',
   },
   {
     id: 'e2',
-    title: 'Mid-Term Examinations (Form 1 – Form 5)',
-    startDate: '2026-11-16',
-    time: 'All Week',
-    location: 'Exam Halls',
+    title: 'Inter-Class Islamic Quiz Competition',
     description:
-      'Mid-term assessments across all subjects. Students should confirm their personal timetable with their class teacher and arrive 20 minutes before each session.',
-    category: 'Academic',
+      'Classes compete on Qur\'an, Hadith, Fiqh and Islamic history in the termly Islamic quiz.',
+    location: 'Main Hall',
+    time: '9:00 AM – 12:00 PM',
+    category: 'Religious',
+    published: true,
+    startDate: '2026-02-14',
   },
   {
     id: 'e3',
-    title: 'Open Day & Campus Tour',
-    startDate: '2026-12-12',
-    time: '9:00 AM – 2:00 PM',
-    location: 'Main Campus',
+    title: 'Annual Sports Day',
     description:
-      'Prospective families are invited to tour our campus, meet teachers and see classes in session. No booking required — simply register at the front desk on arrival.',
-    category: 'Public',
+      'Football, volleyball and athletics competitions between the school houses.',
+    location: 'Sports Complex',
+    time: '8:00 AM – 4:00 PM',
+    category: 'Sports',
+    published: true,
+    startDate: '2026-02-28',
   },
   {
     id: 'e4',
-    title: 'Inter-House Sports Gala',
-    startDate: '2027-01-23',
-    time: '8:00 AM – 4:00 PM',
-    location: 'Sports Complex',
+    title: 'Form Six Graduation Ceremony',
     description:
-      'The four school houses compete in athletics, football, netball and volleyball. Parents and alumni are warmly invited — food stalls and live commentary all day.',
-    category: 'Sports',
+      'Celebration of the Form Six graduating class with awards, speeches and du\'a.',
+    location: 'Main Hall & Gardens',
+    time: '10:00 AM – 2:00 PM',
+    category: 'Ceremony',
+    published: true,
+    startDate: '2026-03-20',
   },
   {
     id: 'e5',
-    title: 'Form Six Graduation Ceremony',
-    startDate: '2027-03-20',
-    time: '10:00 AM – 1:00 PM',
-    location: 'Main Hall & Gardens',
+    title: 'Open Day for Prospective Parents',
     description:
-      'A formal celebration of our Form Six graduates, their families and teachers. The ceremony includes awards for academic excellence, leadership and service.',
-    category: 'Ceremony',
+      'Visit the campus, meet the teachers and learn about day and boarding options.',
+    location: 'Admissions Office, Amana',
+    time: '9:00 AM – 3:00 PM',
+    category: 'Admissions',
+    published: true,
+    startDate: '2026-04-10',
   },
 ]
 
 // ---------------------------------------------------------------------------
-// STAFF DIRECTORY
+// STAFF
 // ---------------------------------------------------------------------------
 export interface StaffMember {
   name: string
@@ -190,18 +191,16 @@ export interface StaffMember {
 }
 
 export const staff: StaffMember[] = [
-  { name: 'Dr. Grace Mwakalinga', role: 'Head of School', department: 'Leadership', initials: 'GM' },
-  { name: 'Mr. Daniel Komba', role: 'Deputy Head — Academics', department: 'Leadership', initials: 'DK' },
-  { name: 'Mrs. Sarah Lyimo', role: 'Head of Sciences', department: 'Sciences', initials: 'SL' },
-  { name: 'Mr. Joseph Mushi', role: 'Head of Mathematics', department: 'Mathematics', initials: 'JM' },
-  { name: 'Ms. Anna Kimaro', role: 'Head of Languages', department: 'Languages', initials: 'AK' },
-  { name: 'Mr. Peter Mwakasege', role: 'Head of Business Studies', department: 'Business', initials: 'PM' },
-  { name: 'Eng. Neema Msigwa', role: 'Head of ICT & Computing', department: 'ICT', initials: 'NM' },
+  { name: 'Mr. Hussein Juma', role: 'Head of School', department: 'Administration', initials: 'HJ' },
+  { name: 'Ms. Aisha Omar', role: 'Deputy Head Academics', department: 'Administration', initials: 'AO' },
+  { name: 'Sheikh Ibrahim Juma', role: 'Head of Islamic Studies & Arabic', department: 'Religious Studies', initials: 'IJ' },
+  { name: 'Mr. Salim Nassor', role: 'Head of Sciences', department: 'Sciences', initials: 'SN' },
+  { name: 'Ms. Zainab Ali', role: 'Head of Languages', department: 'Languages', initials: 'ZA' },
   { name: 'Mrs. Rehema Saleh', role: 'Admissions Officer', department: 'Administration', initials: 'RS' },
 ]
 
 // ---------------------------------------------------------------------------
-// ACADEMICS — departments & subjects
+// DEPARTMENTS & SUBJECTS
 // ---------------------------------------------------------------------------
 export interface Department {
   id: string
@@ -217,55 +216,50 @@ export const departments: Department[] = [
     name: 'Mathematics',
     icon: Calculator,
     description:
-      'From core numeracy to advanced calculus, the department builds strong problem-solving skills through structured practice, math clinics and national exam preparation.',
-    subjects: ['Basic Mathematics', 'Advanced Mathematics', 'Statistics (A-Level)'],
+      'Core numeracy and problem-solving from Nursery through Advanced Level.',
+    subjects: ['Basic Mathematics', 'Advanced Mathematics', 'Statistics'],
   },
   {
     id: 'sciences',
     name: 'Sciences',
     icon: FlaskConical,
-    description:
-      'Practical-first science teaching in modern laboratories. Students carry out weekly experiments and enter regional and national science competitions every year.',
+    description: 'Practical, laboratory-based science for every form.',
     subjects: ['Physics', 'Chemistry', 'Biology', 'General Science'],
   },
   {
     id: 'languages',
-    name: 'Languages & Literature',
-    icon: ScrollText,
-    description:
-      'Fluent expression, critical reading and confident public speaking. The debate team and annual poetry slam give every student a stage for their voice.',
-    subjects: ['English Language', 'Kiswahili', 'English Literature', 'French'],
+    name: 'Languages',
+    icon: Globe2,
+    description: 'Fluency in English, Kiswahili and Arabic — including Qur\'anic Arabic.',
+    subjects: ['English Language', 'Kiswahili', 'Arabic Language', 'English Literature'],
   },
   {
-    id: 'business',
-    name: 'Business Studies',
-    icon: Landmark,
-    description:
-      'Real-world commerce skills through the school\u2019s student-run kiosk project, bookkeeping simulations and mentorship from local business partners.',
-    subjects: ['Bookkeeping', 'Commerce', 'Economics', 'Accountancy (A-Level)'],
+    id: 'islamic-studies',
+    name: 'Islamic Studies',
+    icon: Shield,
+    description: 'Elimu ya Dini ya Kiislamu, Qur\'an, Hadith, Fiqh and Islamic history.',
+    subjects: ['Elimu ya Dini ya Kiislamu', 'Qur\'an Studies', 'Hadith', 'Fiqh', 'Islamic History'],
+  },
+  {
+    id: 'commerce',
+    name: 'Commerce & Business',
+    icon: Briefcase,
+    description: 'Practical trade, book-keeping and business skills.',
+    subjects: ['Commerce', 'Book-Keeping', 'Economics', 'Entrepreneurship'],
   },
   {
     id: 'ict',
-    name: 'ICT & Computing',
+    name: 'ICT & Computer Studies',
     icon: Laptop,
-    description:
-      'Two computer laboratories with high-speed internet. Students learn digital literacy, programming fundamentals and take part in the annual coding club hackathon.',
-    subjects: ['Computer Studies', 'ICT (A-Level)', 'Digital Literacy (all forms)'],
-  },
-  {
-    id: 'social',
-    name: 'Social Studies',
-    icon: Globe2,
-    description:
-      'History, geography and civics that connect classroom knowledge to current affairs, field visits and community service projects across the region.',
-    subjects: ['History', 'Geography', 'Civics', 'General Studies (A-Level)'],
+    description: 'Digital literacy and computing for the modern world.',
+    subjects: ['Computer Studies', 'ICT'],
   },
 ]
 
 // ---------------------------------------------------------------------------
-// ACADEMICS — streams (O-Level / A-Level)
+// STREAMS / PROGRAMMES
 // ---------------------------------------------------------------------------
-export interface AcademicStream {
+export interface Stream {
   id: string
   name: string
   forms: string
@@ -274,31 +268,29 @@ export interface AcademicStream {
   image: string
 }
 
-export const streams: AcademicStream[] = [
+export const streams: Stream[] = [
   {
     id: 'o-level',
-    name: 'O-Level Programme',
-    forms: 'Form 1 – Form 4',
+    name: 'Ordinary Level (Form 1 – 4)',
+    forms: 'Form 1 – 4',
     summary:
-      'A four-year foundation following the national curriculum, with strong emphasis on English and Kiswahili fluency, mathematics, sciences and study skills. Weekly tests and monthly reports keep parents closely informed.',
+      'Students follow the Tanzanian national curriculum alongside specialised religious studies. Subjects include Basic Mathematics, Civics, History, Geography, Kiswahili, English Language, Biology, Chemistry, Physics, Commerce, Book-Keeping, Arabic Language and Elimu ya Dini ya Kiislamu.',
     combinations: [
-      'Core: Mathematics, Sciences, Languages, Social Studies',
-      'Compulsory: Civics, Physical Education & Life Skills',
-      'National exam: Certificate of Secondary Education (CSEE)',
+      'Core: Basic Mathematics, Civics, History, Geography, Kiswahili, English Language, Biology, Chemistry, Physics, Commerce, Book-Keeping, Arabic Language, Elimu ya Dini ya Kiislamu',
+      'National examination: Certificate of Secondary Education Examination (CSEE) — NECTA Centre S2348',
     ],
-    image: images.classroomAlt,
+    image: images.classroom,
   },
   {
     id: 'a-level',
-    name: 'A-Level Programme',
-    forms: 'Form 5 – Form 6',
+    name: 'Advanced Level (Form 5 – 6)',
+    forms: 'Form 5 – 6',
     summary:
-      'Advanced two-year study in focused subject combinations, designed around each student\u2019s university and career goals. Small class sizes, dedicated study halls and university guidance from day one.',
+      'Two years of focused study in a chosen subject combination, preparing students for university and their chosen careers.',
     combinations: [
-      'Science: PCB, PCM, PGM, CBG',
-      'Business: ECA, EGM, HKL',
-      'Arts: HGL, HGE, KML',
-      'National exam: Advanced Certificate (ACSEE)',
+      'Science combinations: PCB, PCM, PGM, CBG',
+      'Arts combinations: HGL, HGK, HKL',
+      'National examination: Advanced Certificate of Secondary Education Examination (ACSEE) — NECTA Centre S2348',
     ],
     image: images.lab,
   },
@@ -318,7 +310,7 @@ export const admissionSteps: AdmissionStep[] = [
     step: 1,
     title: 'Submit Application',
     description:
-      'Apply online in about 10 minutes — you\u2019ll instantly receive a reference number to track your application. Paper forms are still available at the school office.',
+      'Apply online in about ten minutes or collect a paper form at the school office. You will instantly receive a reference number to track your application.',
   },
   {
     step: 2,
@@ -330,27 +322,28 @@ export const admissionSteps: AdmissionStep[] = [
     step: 3,
     title: 'Family Interview',
     description:
-      'A short interview with the student and parents/guardian. We look at attitude, interests and how the school can best support the student.',
+      'A short interview with the student and parents/guardians to discuss attitude, interests and how the school can support the student.',
   },
   {
     step: 4,
     title: 'Offer & Enrolment',
     description:
-      'Successful applicants receive an admission letter within two weeks. Enrolment is confirmed by paying the first term\u2019s fees and collecting the joining pack.',
+      'Successful applicants receive an admission letter within two weeks. Enrolment is confirmed by paying the first-term fees and collecting the joining pack.',
   },
 ]
 
-export const requirementsForm1 = [
+export const requirementsForm1: string[] = [
   'Completed application form',
   'Copy of birth certificate',
-  'Standard Seven national examination results slip',
+  'Standard Seven (PSLE) results slip',
   'Two recent passport-size photographs',
-  'Transfer letter (for students joining mid-year)',
+  'Transfer letter (for students joining mid-year or from another school)',
   'Application fee payment receipt',
 ]
 
-export const requirementsForm5 = [
+export const requirementsForm5: string[] = [
   'Completed application form',
+  'Copy of birth certificate',
   'CSEE certificate / results slip',
   'School leaving certificate from previous school',
   'Two recent passport-size photographs',
@@ -358,6 +351,9 @@ export const requirementsForm5 = [
   'Application fee payment receipt',
 ]
 
+// ---------------------------------------------------------------------------
+// FEES (indicative — confirm exact amounts with the accounts office)
+// ---------------------------------------------------------------------------
 export interface FeeRow {
   level: string
   tuition: string
@@ -366,54 +362,55 @@ export interface FeeRow {
 }
 
 export const feeStructure: FeeRow[] = [
-  { level: 'Form 1', tuition: 'TZS 1,200,000', boarding: 'TZS 800,000', other: 'TZS 150,000' },
-  { level: 'Form 2', tuition: 'TZS 1,250,000', boarding: 'TZS 800,000', other: 'TZS 150,000' },
-  { level: 'Form 3', tuition: 'TZS 1,300,000', boarding: 'TZS 850,000', other: 'TZS 175,000' },
-  { level: 'Form 4', tuition: 'TZS 1,350,000', boarding: 'TZS 850,000', other: 'TZS 200,000' },
-  { level: 'Form 5', tuition: 'TZS 1,600,000', boarding: 'TZS 900,000', other: 'TZS 225,000' },
-  { level: 'Form 6', tuition: 'TZS 1,650,000', boarding: 'TZS 900,000', other: 'TZS 250,000' },
+  { level: 'Form 1 – 4', tuition: 'TZS 150,000', boarding: 'TZS 400,000', other: 'TZS 100,000' },
+  { level: 'Form 5 – 6', tuition: 'TZS 200,000', boarding: 'TZS 450,000', other: 'TZS 150,000' },
 ]
 
-export interface FaqItem {
+// ---------------------------------------------------------------------------
+// FAQS
+// ---------------------------------------------------------------------------
+export interface Faq {
   question: string
   answer: string
 }
 
-export const faqs: FaqItem[] = [
+export const faqs: Faq[] = [
   {
-    question: 'When do admissions open for the new academic year?',
-    answer:
-      'Applications open every January for the intake beginning that same year. Places are offered on a rolling basis, but we encourage families to apply before March as popular forms fill quickly. Mid-year transfers are accepted subject to space.',
+    question: 'Is Ilala Islamic a boarding or day school?',
+    answer: 'Both. Parents may choose bweni (boarding) or kutwa (day) for their children.',
   },
   {
-    question: 'What are the minimum entry requirements?',
-    answer:
-      'For Form 1, applicants should have completed Standard Seven with pass results. For Form 5, applicants need a Division I – II in the CSEE with strong passes in the subjects they wish to pursue. All applicants must pass our entrance assessment.',
+    question: 'Is the secondary school mixed (boys and girls)?',
+    answer: 'Yes. The secondary wing (Forms 1–6) admits both boys and girls, in line with the school\'s Islamic principles.',
   },
   {
-    question: 'Do you offer scholarships or financial aid?',
-    answer:
-      'Yes. Each year we award ten full scholarships and twenty partial bursaries to high-performing students with financial need. Applications for aid are reviewed by the scholarship committee in confidence.',
+    question: 'What curriculum does the school teach?',
+    answer: 'The Tanzanian national curriculum, plus specialised Islamic studies: Qur\'an, Arabic Language and Elimu ya Dini ya Kiislamu.',
   },
   {
-    question: 'Is boarding available, and what does it include?',
-    answer:
-      'We offer supervised boarding in modern dormitories with resident house parents, evening preps, three meals a day and weekend activities. Boarding places are limited to 400 students across all forms.',
+    question: 'Is the school registered with NECTA?',
+    answer: 'Yes. Ilala Islamic Secondary School is fully registered with NECTA under Centre Number S2348.',
   },
   {
-    question: 'What extracurricular activities does the school offer?',
-    answer:
-      'Students can join over 15 clubs including debate, robotics, drama and environment, and take part in football, basketball, netball, volleyball and athletics. Every student joins one club and one sporting activity each term.',
+    question: 'What A-Level combinations are offered?',
+    answer: 'PCB, PCM, PGM and CBG (science), and HGL, HGK and HKL (arts).',
   },
   {
-    question: 'How do I arrange a campus visit?',
-    answer:
-      'Join our monthly Open Day (no booking needed) or contact the admissions office to schedule a private tour on a school day. Contact details are on the Contact page — we respond within one working day.',
+    question: 'Where is the school located?',
+    answer: 'In the Amana area of Ilala Ward, Dar es Salaam City Council — easily reached by central Dar es Salaam transport.',
+  },
+  {
+    question: 'Are prayers part of the daily routine?',
+    answer: 'Yes. Daily congregational prayers and spiritual routines are mandatory for all students.',
+  },
+  {
+    question: 'How can I apply for admission?',
+    answer: 'Apply online through the Admissions page or visit the school office with the required documents.',
   },
 ]
 
 // ---------------------------------------------------------------------------
-// STUDENT LIFE — clubs, sports, houses
+// CLUBS & SOCIETIES
 // ---------------------------------------------------------------------------
 export interface Club {
   id: string
@@ -424,64 +421,74 @@ export interface Club {
 
 export const clubs: Club[] = [
   {
-    id: 'science',
-    name: 'Science Club',
-    icon: FlaskConical,
-    description: 'Weekly experiments, science fair projects and regional competition teams.',
+    id: 'quran',
+    name: 'Qur\'an Club',
+    icon: BookOpen,
+    description: 'Qur\'an memorisation (hifz), tajwid circles and recitation practice.',
   },
   {
     id: 'debate',
-    name: 'Debate & Public Speaking',
+    name: 'Islamic Debate Club',
     icon: ScrollText,
-    description: 'Inter-house debates, mock parliament and speech competitions in English and Kiswahili.',
+    description: 'Debates on Islamic topics, current affairs and public speaking in English and Kiswahili.',
   },
   {
-    id: 'robotics',
-    name: 'Robotics & Coding',
-    icon: Laptop,
-    description: 'Build robots, learn Python and JavaScript, and compete in the annual hackathon.',
+    id: 'nasheed',
+    name: 'Nasheed Group',
+    icon: Music2,
+    description: 'Islamic nasheed and poetry for school programmes and ceremonies.',
   },
   {
-    id: 'drama',
-    name: 'Drama Club',
-    icon: Landmark,
-    description: 'Two stage productions a year, from classic plays to student-written sketches.',
+    id: 'science',
+    name: 'Science Club',
+    icon: FlaskConical,
+    description: 'Weekly experiments, projects and preparation for science fairs.',
   },
   {
     id: 'environment',
     name: 'Environment Club',
     icon: Globe2,
-    description: 'Tree planting, campus recycling programme and community clean-up drives.',
+    description: 'Tree planting, campus recycling and community clean-up drives.',
   },
   {
-    id: 'journalism',
-    name: 'Journalism Club',
-    icon: ScrollText,
-    description: 'Publish the termly school magazine and run the assemblies\u2019 news bulletin.',
-  },
-  {
-    id: 'music',
-    name: 'Music & Band',
-    icon: Landmark,
-    description: 'School choir, instrumental training and performances at every major event.',
-  },
-  {
-    id: 'entrepreneurship',
-    name: 'Entrepreneurship Club',
-    icon: Calculator,
-    description: 'Student-run kiosk, mini business plans and mentorship from local entrepreneurs.',
+    id: 'ict',
+    name: 'ICT Club',
+    icon: Laptop,
+    description: 'Coding, digital skills and preparation for the annual hackathon.',
   },
 ]
 
-export const sportsList = [
-  'Football',
-  'Basketball',
-  'Volleyball',
-  'Netball',
-  'Athletics',
-  'Table Tennis',
-  'Swimming',
-  'Cricket',
+export const sportsList: string[] = ['Football', 'Volleyball', 'Athletics', 'Table Tennis']
+
+// ---------------------------------------------------------------------------
+// TESTIMONIALS
+// ---------------------------------------------------------------------------
+export interface Testimonial {
+  name: string
+  role: string
+  quote: string
+  initials: string
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    name: 'Hussein A.',
+    role: 'Form Six, Science (PCB)',
+    quote: 'Daily prayers, Qur\'an classes and strong academics prepared me for university — and for life as a practising Muslim. Alhamdulillah.',
+    initials: 'HA',
+  },
+  {
+    name: 'Fatima S.',
+    role: 'Parent, Form 2 & Form 4 sons',
+    quote: 'I trust the school with my children because of its Islamic values, disciplined boarding life and the monthly progress reports.',
+    initials: 'FS',
+  },
+  {
+    name: 'Sheikh Ibrahim J.',
+    role: 'Head of Islamic Studies',
+    quote: 'We combine Elimu Bora with Malezi ya Kiislamu so that every student leaves with knowledge, character and taqwa.',
+    initials: 'IJ',
+  },
 ]
 
 // ---------------------------------------------------------------------------
@@ -496,80 +503,46 @@ export interface Facility {
 
 export const facilities: Facility[] = [
   {
+    id: 'mosque',
+    name: 'Mosque & Prayer Halls',
+    description: 'A campus mosque for daily congregational prayers, Friday Jumu\'ah and Qur\'an programmes.',
+    image: images.building,
+  },
+  {
     id: 'labs',
     name: 'Science Laboratories',
-    description:
-      'Three modern laboratories for Physics, Chemistry and Biology, equipped for full practical coursework and weekly experiments.',
+    description: 'Physics, Chemistry and Biology laboratories equipped for full practical coursework and weekly experiments.',
     image: images.lab,
   },
   {
     id: 'library',
     name: 'Library & Resource Centre',
-    description:
-      'Over 10,000 titles, past-paper archive and a quiet digital study zone with research computers.',
+    description: 'Qur\'an and Islamic books, textbooks, past-paper archive and a quiet digital study zone.',
     image: images.library,
   },
   {
     id: 'computer',
-    name: 'Computer Laboratories',
-    description:
-      'Two ICT labs with 80 workstations, high-speed internet and smart screens for digital learning.',
+    name: 'Computer Laboratory',
+    description: 'ICT workstations with internet access for digital literacy and computer studies.',
     image: images.computerLab,
+  },
+  {
+    id: 'boarding',
+    name: 'Boarding Dormitories (Bweni)',
+    description: 'Supervised dorms with resident house parents, study halls and recreational space.',
+    image: images.students,
   },
   {
     id: 'sports',
     name: 'Sports Complex',
-    description:
-      'Football pitch, basketball and volleyball courts, netball grounds and athletics track all on campus.',
+    description: 'Football pitch, volleyball and athletics facilities for inter-house and inter-school competitions.',
     image: images.sports,
-  },
-  {
-    id: 'boarding',
-    name: 'Boarding Dormitories',
-    description:
-      'Comfortable supervised dorms with resident house parents, study halls and recreational space.',
-    image: images.students,
   },
   {
     id: 'clinic',
     name: 'School Clinic',
-    description:
-      'On-site nurse, sick bay and partnerships with nearby hospitals for immediate student care.',
-    image: images.building,
-  },
-]
-
-// ---------------------------------------------------------------------------
-// TESTIMONIALS
-// ---------------------------------------------------------------------------
-export interface Testimonial {
-  name: string
-  role: string
-  quote: string
-  initials: string
-}
-
-export const testimonials: Testimonial[] = [
-  {
-    name: 'Ashura H.',
-    role: 'Form Six, Science (PCB)',
-    quote:
-      'The teachers here genuinely want you to succeed. Morning preps, practical labs and the science club pushed me to aim for medicine — and my results made it possible.',
-    initials: 'AH',
-  },
-  {
-    name: 'Emmanuel M.',
-    role: 'Form Four & Football Captain',
-    quote:
-      'Brightfield balances books and sports perfectly. I improved my maths while captaining the team to the regional trophy. The school believes in the whole person.',
-    initials: 'EM',
-  },
-  {
-    name: 'Mrs. Halima J.',
-    role: 'Parent, Form 2 & Form 5 students',
-    quote:
-      'Monthly reports, open communication and caring teachers. As a parent, I always know where my children stand and what comes next in their studies.',
-    initials: 'HJ',
+    description: 'On-site nurse and sick bay, with partnerships with nearby hospitals for immediate care.',
+    image: images.labAlt,
   },
 ]
 
@@ -577,12 +550,12 @@ export const testimonials: Testimonial[] = [
 // PHOTO GALLERY
 // ---------------------------------------------------------------------------
 export const gallery = [
-  { src: images.campus, alt: 'School main building' },
+  { src: images.campus, alt: 'Ilala Islamic campus in Amana' },
   { src: images.students, alt: 'Students on campus' },
+  { src: images.assembly, alt: 'Qur\'an class and assembly' },
   { src: images.labAlt, alt: 'Science practical lesson' },
-  { src: images.sportsAlt, alt: 'Sports day on the field' },
   { src: images.libraryAlt, alt: 'Library reading hall' },
-  { src: images.assembly, alt: 'Reading time in the library' },
+  { src: images.sportsAlt, alt: 'Sports day on the field' },
   { src: images.classroom, alt: 'Classroom lesson' },
   { src: images.studentsGroup, alt: 'Graduation day' },
 ]

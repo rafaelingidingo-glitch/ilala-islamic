@@ -14,7 +14,7 @@ const news = [
     title: 'Form Four Students Achieve 96% Pass Rate in National Examinations',
     slug: 'form-four-96-percent-pass-rate',
     excerpt:
-      'We are proud to announce that our Form Four class has achieved a 96% pass rate in the national examinations, with 41% of candidates earning Division One results. This outstanding performance reflects the dedication of our students, teachers and parents, and keeps Brightfield among the top-performing schools in the region.',
+      'We are proud to announce that our Form Four class has achieved a 96% pass rate in the national examinations, with 41% of candidates earning Division One results. This outstanding performance reflects the dedication of our students, teachers and parents, and keeps Ilala Islamic among the top-performing schools in the region.',
     category: 'Academics',
     image: 'https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b9174167f2da.jpg',
     featured: true,
@@ -31,7 +31,7 @@ const news = [
     date: new Date('2026-10-14T09:00:00Z'),
   },
   {
-    title: 'Brightfield Wins Regional Inter-School Football Championship',
+    title: 'Ilala Islamic Wins Regional Inter-School Football Championship',
     slug: 'regional-football-champions',
     excerpt:
       'Our senior football team lifted the regional inter-school trophy after an unbeaten campaign, defeating 14 other schools along the way. Captain Emmanuel M. was named Player of the Tournament, and three players have been selected for the regional youth squad.',

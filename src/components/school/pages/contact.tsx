@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Clock, Loader2, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { Clock, Loader2, Mail, MapPin, Phone, Send, Smartphone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -89,6 +89,11 @@ export function ContactPage({ onNavigate }: { onNavigate: (page: PageId) => void
       icon: Clock,
       title: 'Office Hours',
       lines: [contact.officeHours, contact.officeHoursWeekend],
+    },
+    {
+      icon: Smartphone,
+      title: 'WhatsApp',
+      lines: [`WhatsApp: ${contact.whatsapp}`],
     },
   ]
 

@@ -7,6 +7,7 @@ import {
   Mail,
   Menu,
   Phone,
+  Send,
   Twitter,
   Youtube,
 } from 'lucide-react'
@@ -88,6 +89,15 @@ export function Header({ current, onNavigate }: HeaderProps) {
             >
               <Mail className="h-3 w-3" aria-hidden="true" />
               {contact.email}
+            </a>
+            <a
+              href={`https://wa.me/${contact.whatsapp.replace(/[^0-9]/g, '')}`}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 transition-colors hover:text-white"
+            >
+              <Send className="h-3 w-3" aria-hidden="true" />
+              {contact.whatsapp}
             </a>
           </div>
           <div className="flex items-center gap-1">
@@ -212,6 +222,14 @@ export function Header({ current, onNavigate }: HeaderProps) {
                       className="mt-1.5 flex items-center gap-2 text-slate-600 hover:text-slate-900"
                     >
                       <Mail className="h-3.5 w-3.5" /> {contact.email}
+                    </a>
+                    <a
+                      href={`https://wa.me/${contact.whatsapp.replace(/[^0-9]/g, '')}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1.5 flex items-center gap-2 text-slate-600 hover:text-slate-900"
+                    >
+                      <Send className="h-3.5 w-3.5" /> {contact.whatsapp}
                     </a>
                   </div>
                 </div>
