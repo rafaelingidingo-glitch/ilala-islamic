@@ -136,7 +136,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div>
             <SectionHeading
               align="left"
-              eyebrow="Why Ilala Islamic"
+              eyebrow="Why Mzinga High"
               title="A school where every student is known, challenged and supported"
             />
             <p className="mt-5 leading-relaxed text-slate-600">

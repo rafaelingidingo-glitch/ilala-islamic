@@ -1,12 +1,12 @@
 ﻿/**
  * ============================================================================
- *  SITE CONTENT — ILALA ISLAMIC SECONDARY SCHOOL
+ *  SITE CONTENT — MZINGA SECONDARY SCHOOL (MZINGA HIGH SCHOOL)
  * ============================================================================
  *  All page content lives here (news, events, staff, departments, streams,
  *  admission steps, fees, FAQs, clubs, facilities, testimonials, gallery).
  *  Replace these arrays with the school's own content — the pages render
  *  whatever is here, so no component code needs to change.
- *  Image URLs below are demo photos; point them at the school's own photos.
+ *  Image URLs below are demo photos; point them at Mzinga's own photos.
  * ============================================================================
  */
 import type { LucideIcon } from 'lucide-react'
@@ -24,7 +24,7 @@ import {
 } from 'lucide-react'
 
 // ---------------------------------------------------------------------------
-// IMAGES (demo photos — replace with the school's own)
+// IMAGES (demo photos — replace with Mzinga's own)
 // ---------------------------------------------------------------------------
 export const images = {
   hero: 'https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/48a840a1ca9c.jpg',
@@ -62,9 +62,9 @@ export interface NewsItem {
 export const news: NewsItem[] = [
   {
     id: 'n1',
-    title: 'Ilala Islamic Shines in 2025 NECTA Examinations',
+    title: 'Mzinga Secondary School Posts Strong 2025 NECTA Results',
     excerpt:
-      'Our Form Four candidates posted strong results in the 2025 Certificate of Secondary Education Examination, with several students earning Division One at NECTA Centre S2348. Alhamdulillah, this reflects the commitment of our students, teachers and parents to Elimu Bora and Malezi ya Kiislamu.',
+      'Our Form Four candidates posted strong results in the 2025 Certificate of Secondary Education Examination at NECTA Centre S1383 — CSEE 2025 recorded a 100% pass rate, with 56 of 58 candidates passing. This reflects the commitment of our students, teachers and parents.',
     date: '2026-02-10',
     category: 'Academics',
     image: images.classroom,
@@ -72,39 +72,39 @@ export const news: NewsItem[] = [
   },
   {
     id: 'n2',
-    title: 'Annual Holy Qur\'an Memorisation Competition',
+    title: 'Form Four 2026 Candidates Sit National Examinations',
     excerpt:
-      'Students from Nursery to Form 6 took part in the school\'s annual Qur\'an memorisation (hifz) and tajwid competition at the Amana campus. Prizes were awarded to the best reciters in each level.',
-    date: '2026-01-19',
-    category: 'Religious',
-    image: images.assembly,
-  },
-  {
-    id: 'n3',
-    title: 'Arabic Language Programme Expanded to All Forms',
-    excerpt:
-      'Arabic Language is now taught from Primary through Form 6, supporting Qur\'an understanding and preparing students for NECTA Arabic examinations.',
-    date: '2026-01-05',
+      '\u201cMay success be upon you class four 2026 on your National Examinations.\u201d We wish all our Form Four candidates the very best as they sit the CSEE examinations.',
+    date: '2026-10-04',
     category: 'Academics',
     image: images.classroomAlt,
   },
   {
-    id: 'n4',
-    title: 'Form Six Graduation Ceremony — Class of 2026',
+    id: 'n3',
+    title: 'Welcome to Mzinga Schools 2027',
     excerpt:
-      'Families, teachers and guests joined our Form Six graduates at the Main Hall for the annual graduation ceremony, celebrating academic achievement and Islamic character.',
-    date: '2026-03-20',
-    category: 'Ceremony',
-    image: images.studentsGroup,
+      '\u201cA strong foundation today, a brighter future tomorrow. Welcome to Mzinga Schools 2027 — where learning meets care, confidence and excellence.\u201d Applications are now open.',
+    date: '2026-09-16',
+    category: 'Announcement',
+    image: images.campus,
   },
   {
-    id: 'n5',
+    id: 'n4',
     title: 'Boarding Students Excel in Mid-Term Assessments',
     excerpt:
-      'Our bweni (boarding) students recorded strong results in the mid-term assessments, with supervised evening prep and Qur\'an programmes supporting their success.',
+      'Our boarding (bweni) students recorded strong results in the mid-term assessments, with supervised evening prep supporting their success.',
     date: '2026-03-02',
     category: 'Boarding',
     image: images.students,
+  },
+  {
+    id: 'n5',
+    title: 'Open Day for Prospective Parents',
+    excerpt:
+      'Visit the Mzinga campus, meet the teachers and learn about our day and boarding options, O-Level subjects and A-Level Arts combinations (HGL, HKL, HGE, HGK).',
+    date: '2026-04-10',
+    category: 'Admissions',
+    image: images.building,
   },
 ]
 
@@ -125,42 +125,31 @@ export interface EventItem {
 export const events: EventItem[] = [
   {
     id: 'e1',
-    title: 'Friday Congregational Prayer (Jumu\'ah)',
+    title: 'CSEE Mock Examinations (Form 4)',
     description:
-      'Weekly Jumu\'ah prayer and khutbah at the school mosque. All students and staff attend.',
-    location: 'School Mosque, Amana Campus',
-    time: '12:30 PM – 1:30 PM',
-    category: 'Religious',
+      'Form 4 candidates sit mock examinations in preparation for the NECTA Certificate of Secondary Education Examination.',
+    location: 'Examination Hall, Mzinga Campus',
+    time: '8:00 AM – 4:00 PM',
+    category: 'Examinations',
     published: true,
-    startDate: '2026-02-06',
+    startDate: '2026-07-01',
   },
   {
     id: 'e2',
-    title: 'Inter-Class Islamic Quiz Competition',
-    description:
-      'Classes compete on Qur\'an, Hadith, Fiqh and Islamic history in the termly Islamic quiz.',
-    location: 'Main Hall',
-    time: '9:00 AM – 12:00 PM',
-    category: 'Religious',
-    published: true,
-    startDate: '2026-02-14',
-  },
-  {
-    id: 'e3',
-    title: 'Annual Sports Day',
+    title: 'Inter-House Sports Day',
     description:
       'Football, volleyball and athletics competitions between the school houses.',
-    location: 'Sports Complex',
+    location: 'School Sports Ground',
     time: '8:00 AM – 4:00 PM',
     category: 'Sports',
     published: true,
     startDate: '2026-02-28',
   },
   {
-    id: 'e4',
+    id: 'e3',
     title: 'Form Six Graduation Ceremony',
     description:
-      'Celebration of the Form Six graduating class with awards, speeches and du\'a.',
+      'Celebration of the Form Six graduating class with awards and speeches.',
     location: 'Main Hall & Gardens',
     time: '10:00 AM – 2:00 PM',
     category: 'Ceremony',
@@ -168,18 +157,28 @@ export const events: EventItem[] = [
     startDate: '2026-03-20',
   },
   {
-    id: 'e5',
+    id: 'e4',
     title: 'Open Day for Prospective Parents',
     description:
       'Visit the campus, meet the teachers and learn about day and boarding options.',
-    location: 'Admissions Office, Amana',
+    location: 'Admissions Office, Mzinga Ward',
     time: '9:00 AM – 3:00 PM',
     category: 'Admissions',
     published: true,
     startDate: '2026-04-10',
   },
+  {
+    id: 'e5',
+    title: 'A-Level Arts Combination Orientation',
+    description:
+      'Guidance for Form 4 leavers on the Arts combinations HGL, HKL, HGE and HGK for Form 5.',
+    location: 'Multipurpose Hall',
+    time: '9:00 AM – 12:00 PM',
+    category: 'Academics',
+    published: true,
+    startDate: '2026-01-15',
+  },
 ]
-
 // ---------------------------------------------------------------------------
 // STAFF
 // ---------------------------------------------------------------------------
@@ -191,12 +190,13 @@ export interface StaffMember {
 }
 
 export const staff: StaffMember[] = [
-  { name: 'Mr. Hussein Juma', role: 'Head of School', department: 'Administration', initials: 'HJ' },
-  { name: 'Ms. Aisha Omar', role: 'Deputy Head Academics', department: 'Administration', initials: 'AO' },
-  { name: 'Sheikh Ibrahim Juma', role: 'Head of Islamic Studies & Arabic', department: 'Religious Studies', initials: 'IJ' },
-  { name: 'Mr. Salim Nassor', role: 'Head of Sciences', department: 'Sciences', initials: 'SN' },
-  { name: 'Ms. Zainab Ali', role: 'Head of Languages', department: 'Languages', initials: 'ZA' },
-  { name: 'Mrs. Rehema Saleh', role: 'Admissions Officer', department: 'Administration', initials: 'RS' },
+  { name: 'Mr. Juma Mzinga', role: 'Head of School', department: 'Administration', initials: 'JM' },
+  { name: 'Ms. Rehema Omari', role: 'Deputy Head Academics', department: 'Administration', initials: 'RO' },
+  { name: 'Mr. Salim Nassor', role: 'Head of Languages', department: 'Languages', initials: 'SN' },
+  { name: 'Ms. Zainab Ali', role: 'Head of Humanities', department: 'Humanities', initials: 'ZA' },
+  { name: 'Mr. Daudi Thomas', role: 'Head of Sciences', department: 'Sciences', initials: 'DT' },
+  { name: 'Mrs. Amina Salim', role: 'Head of Commerce & ICT', department: 'Commerce & Business', initials: 'AS' },
+  { name: 'Mr. Kelvin Peter', role: 'Admissions & Boarding Officer', department: 'Administration', initials: 'KP' },
 ]
 
 // ---------------------------------------------------------------------------
@@ -212,47 +212,52 @@ export interface Department {
 
 export const departments: Department[] = [
   {
-    id: 'mathematics',
-    name: 'Mathematics',
-    icon: Calculator,
+    id: 'languages',
+    name: 'Languages',
+    icon: Globe2,
     description:
-      'Core numeracy and problem-solving from Nursery through Advanced Level.',
-    subjects: ['Basic Mathematics', 'Advanced Mathematics', 'Statistics'],
+      'Fluency in English and Kiswahili — the medium of instruction and the national language.',
+    subjects: ['English Language', 'Kiswahili'],
+  },
+  {
+    id: 'humanities',
+    name: 'Humanities',
+    icon: ScrollText,
+    description:
+      'Civics, History and Geography — building informed and responsible citizens.',
+    subjects: ['Civics', 'History', 'Geography'],
   },
   {
     id: 'sciences',
     name: 'Sciences',
     icon: FlaskConical,
-    description: 'Practical, laboratory-based science for every form.',
-    subjects: ['Physics', 'Chemistry', 'Biology', 'General Science'],
-  },
-  {
-    id: 'languages',
-    name: 'Languages',
-    icon: Globe2,
-    description: 'Fluency in English, Kiswahili and Arabic — including Qur\'anic Arabic.',
-    subjects: ['English Language', 'Kiswahili', 'Arabic Language', 'English Literature'],
-  },
-  {
-    id: 'islamic-studies',
-    name: 'Islamic Studies',
-    icon: Shield,
-    description: 'Elimu ya Dini ya Kiislamu, Qur\'an, Hadith, Fiqh and Islamic history.',
-    subjects: ['Elimu ya Dini ya Kiislamu', 'Qur\'an Studies', 'Hadith', 'Fiqh', 'Islamic History'],
+    description:
+      'Practical, laboratory-based science: Physics, Chemistry, Biology and Basic Mathematics.',
+    subjects: ['Physics', 'Chemistry', 'Biology', 'Basic Mathematics'],
   },
   {
     id: 'commerce',
     name: 'Commerce & Business',
     icon: Briefcase,
-    description: 'Practical trade, book-keeping and business skills.',
-    subjects: ['Commerce', 'Book-Keeping', 'Economics', 'Entrepreneurship'],
+    description:
+      'Practical trade, book-keeping and business skills for future entrepreneurs.',
+    subjects: ['Commerce', 'Book-Keeping'],
   },
   {
     id: 'ict',
     name: 'ICT & Computer Studies',
     icon: Laptop,
-    description: 'Digital literacy and computing for the modern world.',
-    subjects: ['Computer Studies', 'ICT'],
+    description:
+      'Digital literacy and computing skills for the modern world.',
+    subjects: ['Computer Studies'],
+  },
+  {
+    id: 'a-level-arts',
+    name: 'Advanced Level (Arts)',
+    icon: BookOpen,
+    description:
+      'Form 5–6 Arts combinations — HGL, HKL, HGE and HGK — preparing students for university.',
+    subjects: ['History', 'Geography', 'Kiswahili', 'English Language'],
   },
 ]
 
@@ -274,10 +279,10 @@ export const streams: Stream[] = [
     name: 'Ordinary Level (Form 1 – 4)',
     forms: 'Form 1 – 4',
     summary:
-      'Students follow the Tanzanian national curriculum alongside specialised religious studies. Subjects include Basic Mathematics, Civics, History, Geography, Kiswahili, English Language, Biology, Chemistry, Physics, Commerce, Book-Keeping, Arabic Language and Elimu ya Dini ya Kiislamu.',
+      'Students follow the Tanzanian national curriculum. Subjects include Civics, History, English, Kiswahili, Geography, Physics, Chemistry, Biology, Basic Mathematics, Bookkeeping, Commerce and Computer Studies, leading to the Certificate of Secondary Education Examination (CSEE) at NECTA Centre S1383.',
     combinations: [
-      'Core: Basic Mathematics, Civics, History, Geography, Kiswahili, English Language, Biology, Chemistry, Physics, Commerce, Book-Keeping, Arabic Language, Elimu ya Dini ya Kiislamu',
-      'National examination: Certificate of Secondary Education Examination (CSEE) — NECTA Centre S2348',
+      'Core: Civics, History, English, Kiswahili, Geography, Physics, Chemistry, Biology, Basic Mathematics, Bookkeeping, Commerce, Computer Studies',
+      'National examination: CSEE — NECTA Centre S1383',
     ],
     image: images.classroom,
   },
@@ -286,11 +291,10 @@ export const streams: Stream[] = [
     name: 'Advanced Level (Form 5 – 6)',
     forms: 'Form 5 – 6',
     summary:
-      'Two years of focused study in a chosen subject combination, preparing students for university and their chosen careers.',
+      'Two years of focused Arts study in a chosen combination, preparing students for university and their chosen careers.',
     combinations: [
-      'Science combinations: PCB, PCM, PGM, CBG',
-      'Arts combinations: HGL, HGK, HKL',
-      'National examination: Advanced Certificate of Secondary Education Examination (ACSEE) — NECTA Centre S2348',
+      'Arts combinations: HGL (History, Geography, Kiswahili Language), HKL (History, Kiswahili, English Language), HGE (History, Geography, Economics), HGK (History, Geography, Kiswahili)',
+      'National examination: ACSEE — NECTA Centre S1383',
     ],
     image: images.lab,
   },
@@ -350,7 +354,6 @@ export const requirementsForm5: string[] = [
   'Personal statement (half a page)',
   'Application fee payment receipt',
 ]
-
 // ---------------------------------------------------------------------------
 // FEES (indicative — confirm exact amounts with the accounts office)
 // ---------------------------------------------------------------------------
@@ -376,32 +379,32 @@ export interface Faq {
 
 export const faqs: Faq[] = [
   {
-    question: 'Is Ilala Islamic a boarding or day school?',
-    answer: 'Both. Parents may choose bweni (boarding) or kutwa (day) for their children.',
+    question: 'Is Mzinga Secondary School a boarding or day school?',
+    answer: 'Both. Parents may choose boarding (bweni) or day (kutwa) for their children.',
   },
   {
-    question: 'Is the secondary school mixed (boys and girls)?',
-    answer: 'Yes. The secondary wing (Forms 1–6) admits both boys and girls, in line with the school\'s Islamic principles.',
+    question: 'Is the school mixed (boys and girls)?',
+    answer: 'Yes. Mzinga Secondary School is co-educational — boys and girls study together from Form 1 to Form 6.',
   },
   {
     question: 'What curriculum does the school teach?',
-    answer: 'The Tanzanian national curriculum, plus specialised Islamic studies: Qur\'an, Arabic Language and Elimu ya Dini ya Kiislamu.',
+    answer: 'The Tanzanian national curriculum for Ordinary Level (Form 1–4) and Advanced Level (Form 5–6).',
   },
   {
     question: 'Is the school registered with NECTA?',
-    answer: 'Yes. Ilala Islamic Secondary School is fully registered with NECTA under Centre Number S2348.',
+    answer: 'Yes. Mzinga Secondary School is fully registered with NECTA under Centre Number S1383 (school registration S.1339).',
   },
   {
     question: 'What A-Level combinations are offered?',
-    answer: 'PCB, PCM, PGM and CBG (science), and HGL, HGK and HKL (arts).',
+    answer: 'Arts combinations: HGL, HKL, HGE and HGK.',
+  },
+  {
+    question: 'What O-Level subjects are offered?',
+    answer: 'Civics, History, English, Kiswahili, Geography, Physics, Chemistry, Biology, Basic Mathematics, Bookkeeping, Commerce and Computer Studies.',
   },
   {
     question: 'Where is the school located?',
-    answer: 'In the Amana area of Ilala Ward, Dar es Salaam City Council — easily reached by central Dar es Salaam transport.',
-  },
-  {
-    question: 'Are prayers part of the daily routine?',
-    answer: 'Yes. Daily congregational prayers and spiritual routines are mandatory for all students.',
+    answer: 'Mwanagati Street, Mzinga Ward, Ilala Municipal Council, Dar es Salaam, Tanzania (P.O. Box 25274).',
   },
   {
     question: 'How can I apply for admission?',
@@ -421,22 +424,10 @@ export interface Club {
 
 export const clubs: Club[] = [
   {
-    id: 'quran',
-    name: 'Qur\'an Club',
-    icon: BookOpen,
-    description: 'Qur\'an memorisation (hifz), tajwid circles and recitation practice.',
-  },
-  {
     id: 'debate',
-    name: 'Islamic Debate Club',
+    name: 'Debate Club',
     icon: ScrollText,
-    description: 'Debates on Islamic topics, current affairs and public speaking in English and Kiswahili.',
-  },
-  {
-    id: 'nasheed',
-    name: 'Nasheed Group',
-    icon: Music2,
-    description: 'Islamic nasheed and poetry for school programmes and ceremonies.',
+    description: 'Debates and public speaking in English and Kiswahili.',
   },
   {
     id: 'science',
@@ -445,20 +436,32 @@ export const clubs: Club[] = [
     description: 'Weekly experiments, projects and preparation for science fairs.',
   },
   {
+    id: 'ict',
+    name: 'ICT Club',
+    icon: Laptop,
+    description: 'Coding, digital skills and preparation for the annual hackathon.',
+  },
+  {
     id: 'environment',
     name: 'Environment Club',
     icon: Globe2,
     description: 'Tree planting, campus recycling and community clean-up drives.',
   },
   {
-    id: 'ict',
-    name: 'ICT Club',
-    icon: Laptop,
-    description: 'Coding, digital skills and preparation for the annual hackathon.',
+    id: 'sports',
+    name: 'Sports & Games Club',
+    icon: Users,
+    description: 'Football, volleyball, athletics and inter-house competitions.',
+  },
+  {
+    id: 'writers',
+    name: 'Writers & Journalism Club',
+    icon: BookOpen,
+    description: 'School magazine, newsletters and creative writing.',
   },
 ]
 
-export const sportsList: string[] = ['Football', 'Volleyball', 'Athletics', 'Table Tennis']
+export const sportsList: string[] = ['Football', 'Volleyball', 'Athletics', 'Netball', 'Table Tennis']
 
 // ---------------------------------------------------------------------------
 // TESTIMONIALS
@@ -472,22 +475,22 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Hussein A.',
-    role: 'Form Six, Science (PCB)',
-    quote: 'Daily prayers, Qur\'an classes and strong academics prepared me for university — and for life as a practising Muslim. Alhamdulillah.',
-    initials: 'HA',
+    name: 'Baraka J.',
+    role: 'Form Six, Arts (HGL)',
+    quote: 'The HGL combination opened my eyes to history and geography, and the teachers prepared us well for the ACSEE. I am confident about university.',
+    initials: 'BJ',
   },
   {
-    name: 'Fatima S.',
+    name: 'Asha S.',
     role: 'Parent, Form 2 & Form 4 sons',
-    quote: 'I trust the school with my children because of its Islamic values, disciplined boarding life and the monthly progress reports.',
-    initials: 'FS',
+    quote: 'I trust Mzinga with my children because of its disciplined boarding life, caring teachers and the termly progress reports.',
+    initials: 'AS',
   },
   {
-    name: 'Sheikh Ibrahim J.',
-    role: 'Head of Islamic Studies',
-    quote: 'We combine Elimu Bora with Malezi ya Kiislamu so that every student leaves with knowledge, character and taqwa.',
-    initials: 'IJ',
+    name: 'Neema K.',
+    role: 'Teacher, Languages Department',
+    quote: 'Seeing students grow in confidence as they master English and Kiswahili is the most rewarding part of my work here.',
+    initials: 'NK',
   },
 ]
 
@@ -503,39 +506,33 @@ export interface Facility {
 
 export const facilities: Facility[] = [
   {
-    id: 'mosque',
-    name: 'Mosque & Prayer Halls',
-    description: 'A campus mosque for daily congregational prayers, Friday Jumu\'ah and Qur\'an programmes.',
-    image: images.building,
-  },
-  {
     id: 'labs',
     name: 'Science Laboratories',
     description: 'Physics, Chemistry and Biology laboratories equipped for full practical coursework and weekly experiments.',
     image: images.lab,
   },
   {
-    id: 'library',
-    name: 'Library & Resource Centre',
-    description: 'Qur\'an and Islamic books, textbooks, past-paper archive and a quiet digital study zone.',
-    image: images.library,
-  },
-  {
     id: 'computer',
     name: 'Computer Laboratory',
-    description: 'ICT workstations with internet access for digital literacy and computer studies.',
+    description: 'ICT workstations with internet access for digital literacy and Computer Studies.',
     image: images.computerLab,
   },
   {
+    id: 'library',
+    name: 'Library & Resource Centre',
+    description: 'Textbooks, past-paper archive and a quiet digital study zone for all forms.',
+    image: images.library,
+  },
+  {
     id: 'boarding',
-    name: 'Boarding Dormitories (Bweni)',
+    name: 'Boarding Dormitories',
     description: 'Supervised dorms with resident house parents, study halls and recreational space.',
     image: images.students,
   },
   {
     id: 'sports',
-    name: 'Sports Complex',
-    description: 'Football pitch, volleyball and athletics facilities for inter-house and inter-school competitions.',
+    name: 'Sports Ground',
+    description: 'Football, volleyball and athletics facilities for inter-house and inter-school competitions.',
     image: images.sports,
   },
   {
@@ -544,15 +541,21 @@ export const facilities: Facility[] = [
     description: 'On-site nurse and sick bay, with partnerships with nearby hospitals for immediate care.',
     image: images.labAlt,
   },
+  {
+    id: 'classrooms',
+    name: 'Modern Classrooms',
+    description: 'Conducive, well-ventilated classrooms for Forms 1 through 6.',
+    image: images.classroom,
+  },
 ]
 
 // ---------------------------------------------------------------------------
 // PHOTO GALLERY
 // ---------------------------------------------------------------------------
 export const gallery = [
-  { src: images.campus, alt: 'Ilala Islamic campus in Amana' },
+  { src: images.campus, alt: 'Mzinga Secondary School campus in Mzinga Ward' },
   { src: images.students, alt: 'Students on campus' },
-  { src: images.assembly, alt: 'Qur\'an class and assembly' },
+  { src: images.assembly, alt: 'School assembly' },
   { src: images.labAlt, alt: 'Science practical lesson' },
   { src: images.libraryAlt, alt: 'Library reading hall' },
   { src: images.sportsAlt, alt: 'Sports day on the field' },

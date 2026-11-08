@@ -43,51 +43,51 @@ export const schoolConfig = {
   // 1. SCHOOL IDENTITY
   // ---------------------------------------------------------------------------
   identity: {
-    name: 'Ilala Islamic Secondary School',
-    shortName: 'Ilala Islamic',
-    initials: 'IIS',
-    motto: 'Elimu Bora • Malezi ya Kiislamu',
+    name: 'Mzinga Secondary School',
+    shortName: 'Mzinga High',
+    initials: 'MHS',
+    motto: 'Knowledge • Care • Excellence',
     tagline:
-      'Quality education and excellent Islamic upbringing — from Nursery to Form 6.',
-    established: 2000, // TODO: confirm the school's founding year
+      'A strong foundation today, a brighter future tomorrow — quality O-Level (Form 1–4) and A-Level (Form 5–6, Arts) education in Mzinga Ward, Ilala, Dar es Salaam.',
+    established: 2004,
     type:
-      'Private Islamic Day & Boarding School — Mixed Secondary Wing (Boys & Girls, Forms 1–6)',
+      'Private Co-Educational Day & Boarding School — Ordinary Level (Forms 1–4) and Advanced Level (Forms 5–6)',
     description:
-      'Ilala Islamic Secondary School is a private, non-government Islamic institution in the Amana area of Ilala Ward, Dar es Salaam. Fully registered with NECTA under Centre Number S2348, we offer day (kutwa) and boarding (bweni) options from Nursery through Form 6, combining the Tanzanian national curriculum with specialised Islamic studies.',
+      'Mzinga Secondary School (also known as Mzinga High School) is a private, non-government co-educational school in the Mzinga ward of Ilala Municipal Council, Dar es Salaam, Tanzania. It welcomes both boys and girls as day and boarding students. The school has offered O-Level studies since 2004 and A-Level Arts combinations — HGL, HKL, HGE and HGK — since 2009. Fully registered with NECTA under Centre Number S1383 (school registration S.1339). O-Level subjects include Civics, History, English, Kiswahili, Geography, Physics, Chemistry, Biology, Basic Mathematics, Bookkeeping, Commerce and Computer Studies.',
   },
 
   // ---------------------------------------------------------------------------
-  // 2. THEME — Islamic green & gold, applied across the whole site
-  //    Change these hex values and the entire site re-colors itself.
+  // 2. THEME — colours taken from the school logo (public/logo.jpg): gold,
+  //  charcoal and silver. Change these hex values and the entire site re-colors.
   // ---------------------------------------------------------------------------
   theme: {
-    primary: '#065f46', // main brand green (buttons, links, highlights)
-    primaryDark: '#064e3b', // darker green (hover states, heading accents)
-    navy: '#022c22', // deep green-black (top bar, footer, hero overlay)
-    tint: '#f0fdf4', // very light green (section backgrounds)
-    tintStrong: '#dcfce7', // light green (badges, chips, borders)
-    ring: '#86efac', // focus ring green
-    accent: '#d97706', // amber/gold accent (gradient details)
+    primary: '#bd7a36', // main brand gold (buttons, links, highlights)
+    primaryDark: '#9a5f26', // darker gold (hover states, heading accents)
+    navy: '#3b3b3b', // charcoal (top bar, footer, hero overlay)
+    tint: '#fdf9f1', // very light cream (section backgrounds)
+    tintStrong: '#f7e8c9', // light gold (badges, chips, borders)
+    ring: '#e2c58e', // focus ring gold
+    accent: '#bd7a36', // gold accent (gradient details)
   },
 
   // ---------------------------------------------------------------------------
   // 3. CONTACT INFORMATION
   // ---------------------------------------------------------------------------
   contact: {
-    address: 'Amana area, Ilala Ward',
-    city: 'Dar es Salaam City Council, Tanzania',
-    postal: 'P.O. Box, Ilala',
-    phone: '+255 676 332 703',
-    phoneAlt: '+255 713 007 586 / +255 714 687 203',
-    whatsapp: '+255 745 000 006',
-    email: 'ilalaislamic@gmail.com',
-    admissionsEmail: 'ilalaislamic@gmail.com',
+    address: 'Mwanagati Street, Mzinga Ward',
+    city: 'Ilala Municipal Council, Dar es Salaam, Tanzania',
+    postal: 'P.O. Box 25274, Dar es Salaam',
+    phone: '+255 787 044 423',
+    phoneAlt: '+255 766 795 190 / +255 713 329 683',
+    whatsapp: '+255 787 044 423',
+    email: 'admissions@mzingahighschool.ac.tz', // TODO: confirm the school's published email address before deploy
+    admissionsEmail: 'admissions@mzingahighschool.ac.tz', // TODO: confirm before deploy
     officeHours: 'Monday – Friday: 7:30 AM – 4:30 PM',
     officeHoursWeekend: 'Saturday: 8:00 AM – 12:00 PM (Closed Sunday)',
-    mapUrl: 'https://maps.google.com/?q=Amana+Ilala+Dar+es+Salaam',
+    mapUrl:
+      'https://maps.google.com/?q=Mzinga+Ward+Mwanagati+Kitunda+Ilala+Dar+es+Salaam+Tanzania',
     social: {
-      facebook: 'https://www.facebook.com/IlalaIslamicSecondarySchool',
-      instagram: 'https://www.instagram.com/ilala_islamic_secondary',
+      instagram: 'https://www.instagram.com/mzingaschools',
     } as Record<string, string>,
   },
 
@@ -95,10 +95,11 @@ export const schoolConfig = {
   // 4. HEADLINE STATS (home page stat band)
   // ---------------------------------------------------------------------------
   stats: [
-    { value: 'Nursery → Form 6', label: 'Full Education Tier' },
-    { value: 'S2348', label: 'NECTA Centre Number' },
-    { value: 'Mixed', label: 'Secondary Wing (Boys & Girls, Forms 1–6)' },
+    { value: 'S1383', label: 'NECTA Centre Number' },
+    { value: 'Form 1 → Form 6', label: 'O-Level & A-Level' },
+    { value: 'HGL • HKL • HGE • HGK', label: 'A-Level Arts Combinations' },
     { value: 'Day & Boarding', label: 'Study Options' },
+    { value: 'Co-Education', label: 'Boys & Girls' },
   ] as StatItem[],
 
   // ---------------------------------------------------------------------------
@@ -131,18 +132,9 @@ export const schoolConfig = {
     /** Non-refundable application processing fee, shown before submission. */
     applicationFee: 'TZS 10,000', // TODO: confirm actual application fee
     /** Classes open for online application (Select options in the form). */
-    classesOffered: [
-      'Nursery',
-      'Primary',
-      'Form 1',
-      'Form 2',
-      'Form 3',
-      'Form 4',
-      'Form 5',
-      'Form 6',
-    ],
-    /** Reference-number prefix, e.g. `IIS-2026-0001`. */
-    referencePrefix: 'IIS',
+    classesOffered: ['Form 1', 'Form 2', 'Form 3', 'Form 4', 'Form 5', 'Form 6'],
+    /** Reference-number prefix, e.g. `MHS-2026-0001`. */
+    referencePrefix: 'MHS',
   },
 
   // ---------------------------------------------------------------------------
@@ -153,11 +145,11 @@ export const schoolConfig = {
   // ---------------------------------------------------------------------------
   admin: {
     /** Login password for the admin panel. */
-    password: 'admin123',
+    password: 'admin123', // TODO: change before deploying for a real school
     /** Secret used to sign session cookies — set a long random string. */
-    secret: 'ilala-islamic-template-secret-change-me-in-production',
+    secret: 'mzinga-secondary-template-secret-change-me-in-production',
     /** Display name shown in the admin top bar. */
-    label: 'Website Administrator',
+    label: 'Mzinga Schools Website Administrator',
   },
 }
 

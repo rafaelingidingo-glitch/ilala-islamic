@@ -42,14 +42,14 @@ export function Logo({
       className="rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       aria-label={`Go to home — ${identity.name}`}
     >
-      {/* School crest only — swap `/school-logo.avif` in `public/` to change it. */}
+      {/* School crest only — swap `/logo.jpg` in `public/` to change it. */}
       <img
-        src="/school-logo.avif"
+        src="/logo.jpg"
         alt={`${identity.name} logo`}
         width={44}
         height={44}
         className={cn(
-          'h-11 w-11 rounded-full object-cover shadow-sm',
+          'h-11 w-11 object-cover shadow-sm',
           variant === 'footer' && 'ring-2 ring-white/30'
         )}
       />

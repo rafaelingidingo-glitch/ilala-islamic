@@ -14,29 +14,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ilala Islamic Secondary School — Elimu Bora • Malezi ya Kiislamu",
+  title: "Mzinga Secondary School — Knowledge • Care • Excellence",
   description:
-    "Official website of Ilala Islamic Secondary School — a private Islamic day and boarding school in Amana, Ilala, Dar es Salaam. NECTA Centre S2348. Nursery to Form 6 mixed secondary school (boys and girls). Admissions open.",
+    "Official website of Mzinga Secondary School (Mzinga High School) — a private co-educational day and boarding school in Mzinga Ward, Ilala Municipal Council, Dar es Salaam, Tanzania. NECTA Centre S1383. O-Level (Form 1–4) and A-Level Arts (HGL, HKL, HGE, HGK). Admissions open.",
   keywords: [
-    "Ilala Islamic Secondary School",
-    "Islamic school Dar es Salaam",
-    "NECTA S2348",
-    "mixed secondary school",
-    "Amana Ilala",
+    "Mzinga Secondary School",
+    "Mzinga High School",
+    "NECTA S1383",
+    "secondary school Dar es Salaam",
+    "Mzinga Ward Ilala",
     "admissions",
     "O-Level",
     "A-Level",
-    "Islamic education Tanzania",
+    "HGL HKL HGE HGK",
+    "co-educational boarding school Tanzania",
   ],
   icons: {
-    icon: "/school-logo-icon.png",
-    apple: "/school-logo-apple.png",
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
   },
   openGraph: {
-    title: "Ilala Islamic Secondary School",
+    title: "Mzinga Secondary School",
     description:
-      "Quality education and excellent Islamic upbringing — Elimu Bora • Malezi ya Kiislamu — Nursery to Form 6 in Amana, Ilala, Dar es Salaam.",
-    siteName: "Ilala Islamic Secondary School",
+      "A strong foundation today, a brighter future tomorrow — quality O-Level and A-Level (Arts) education in Mzinga Ward, Ilala, Dar es Salaam.",
+    siteName: "Mzinga Secondary School",
     type: "website",
   },
 };
